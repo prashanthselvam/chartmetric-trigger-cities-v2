@@ -95,7 +95,7 @@ const TriggerCityMarker: React.FC<TriggerCityMarkerProps> = ({ city, onMouseOver
     <Marker longitude={city.CITY_LNG} latitude={city.CITY_LAT} anchor="bottom">
       <div
         // className={`rounded-full outline-white outline -outline-offset-4 ${className}`}
-        className={className}
+        className={`mapMarker ${className}`}
         style={{ outlineWidth: 'thin', height: size, width: size, borderRadius: 200 }}
         onMouseOver={() => onMouseOver(city)}
       />
@@ -104,8 +104,8 @@ const TriggerCityMarker: React.FC<TriggerCityMarkerProps> = ({ city, onMouseOver
 };
 
 const getMarkerSize = (cityPopulation: number) => {
-  const minSize = 16;
-  const maxSize = 72;
+  const minSize = 22;
+  const maxSize = 92;
   const ratio = (cityPopulation - minPopulation) / (maxPopulation - minPopulation);
   const size = ratio * (maxSize - minSize) + minSize;
 

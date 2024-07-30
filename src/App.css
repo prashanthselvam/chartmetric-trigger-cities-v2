@@ -95,18 +95,25 @@
     background: none;
 }
 
+.mapMarker {
+  opacity: 0.6;
+  border-radius: 200;
+  outline: 0.75px solid var(--color-gray-01);
+  outline-offset: -5px;
+}
+
 .tier1Marker {
-    background:  radial-gradient(circle at center center, rgba(242,94,255,0.5), rgba(0,0,0,0));
+    background:  radial-gradient(circle at center center, var(--color-tier-1), rgba(0,0,0,0) 80%);
 }
   
 .tier2Marker {
-    background: radial-gradient(circle at center center, rgba(0,148,255,0.5), rgba(0,0,0,0));
+    background: radial-gradient(circle at center center, var(--color-tier-2), rgba(0,0,0,0) 80%);
 }
 
 .tier3Marker {
-    background: radial-gradient(circle at center center, rgba(70,228,171,0.5), rgba(0,0,0,0));
+    background: radial-gradient(circle at center center, var(--color-tier-3), rgba(0,0,0,0) 80%);
 }
 
 .tier4Marker {
-    background: radial-gradient(circle at center center, rgba(192,191,191,0.5), rgba(0,0,0,0));
+    background: radial-gradient(circle at center center, var(--color-tier-4), rgba(0,0,0,0) 80%);
 }
