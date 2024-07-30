@@ -21,7 +21,7 @@ const TriggerCitiesMap = () => {
         zoom: 1.5,
       }}
       style={{ width: '100%', height: 'calc(100% - 64px)', opacity: 0.95 }}
-      mapStyle="map_style.json"
+      mapStyle="https://prashanthselvam.github.io/chartmetric-trigger-cities-v2/map_style.json"
       scrollZoom={false}
     >
       {CITIES.map((city) => (
