@@ -13,34 +13,66 @@ const TriggerCitiesMap = () => {
   const mapRef = React.useRef(null);
 
   return (
-    <Map
-      ref={mapRef}
-      initialViewState={{
-        longitude: 0,
-        latitude: 0,
-        zoom: 1.5,
-      }}
-      style={{ width: '100%', height: 'calc(100% - 64px)', opacity: 0.95 }}
-      mapStyle="https://prashanthselvam.github.io/chartmetric-trigger-cities-v2/map_style.json"
-      scrollZoom={false}
-    >
-      {CITIES.map((city) => (
-        <TriggerCityMarker key={city.CITY_ID} city={city} onMouseOver={(city: TCity) => setPopupCity(city)} />
-      ))}
-      {!!popupCity && (
-        <Popup
-          longitude={popupCity.CITY_LNG}
-          latitude={popupCity.CITY_LAT}
-          onClose={() => setPopupCity(null)}
-          closeButton={false}
-          style={{ background: 'red' }}
-          offset={24}
-        >
-          <PopupContent city={popupCity} />
-        </Popup>
-      )}
-      <NavigationControl position="top-right" showZoom={true} />
-    </Map>
+    <div id="map-container">
+      <Map
+        ref={mapRef}
+        initialViewState={{
+          longitude: 0,
+          latitude: 0,
+          zoom: 1.5,
+        }}
+        style={{ opacity: 0.95 }}
+        mapStyle="https://prashanthselvam.github.io/chartmetric-trigger-cities-v2/map_style.json"
+        scrollZoom={false}
+      >
+        {CITIES.map((city) => (
+          <TriggerCityMarker key={city.CITY_ID} city={city} onMouseOver={(city: TCity) => setPopupCity(city)} />
+        ))}
+        {!!popupCity && (
+          <Popup
+            longitude={popupCity.CITY_LNG}
+            latitude={popupCity.CITY_LAT}
+            onClose={() => setPopupCity(null)}
+            closeButton={false}
+            style={{ background: 'red' }}
+            offset={24}
+          >
+            <PopupContent city={popupCity} />
+          </Popup>
+        )}
+        <NavigationControl position="top-right" showZoom={true} />
+      </Map>
+      <div id="legend">
+        <figure>
+          <div
+            className="legendMarker"
+            style={{ backgroundColor: 'var(--color-tier-1)', width: '16.1px', height: '16.1px' }}
+          />
+          <figcaption>Tier 1</figcaption>
+        </figure>
+        <figure>
+          <div
+            className="legendMarker"
+            style={{ backgroundColor: 'var(--color-tier-2)', width: '12px', height: '12px' }}
+          />
+          <figcaption>Tier 2</figcaption>
+        </figure>
+        <figure>
+          <div
+            className="legendMarker"
+            style={{ backgroundColor: 'var(--color-tier-3)', width: '9px', height: '9px' }}
+          />
+          <figcaption>Tier 3</figcaption>
+        </figure>
+        <figure>
+          <div
+            className="legendMarker"
+            style={{ backgroundColor: 'var(--color-tier-4)', width: '7px', height: '7px' }}
+          />
+          <figcaption>Tier 4</figcaption>
+        </figure>
+      </div>
+    </div>
   );
 };
 

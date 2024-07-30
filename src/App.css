@@ -1,38 +1,112 @@
-.App {
-  text-align: center;
+@import url("https://unpkg.com/maplibre-gl/dist/maplibre-gl.css");
+
+:root {
+  --color-gray-01: rgba(244, 244, 244, 1);
+  --color-gray-05: rgba(72, 72, 75, 1);
+  --color-gray-06: rgba(29, 29, 33, 1);
+
+  --color-tier-1: rgba(242, 94, 255, 1);
+  --color-tier-2: rgba(0, 148, 255, 1);
+  --color-tier-3: rgba(70, 228, 171, 1);
+  --color-tier-4: rgba(192, 191, 191, 1);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.topBar {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 0px 24px;
+  height: 64px;
+  background: var(--color-gray-06);
+  border-bottom: 0.75px solid var(--color-gray-05);
+  color: var(--color-gray-01);
 }
 
-.App-link {
-  color: #61dafb;
+.topBar h1 {
+  margin-left: 16px;
+  font-size: 20px;
+  font-weight: 700;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.toggleBtnContainer {
+  margin-left: auto;
+  font-weight: 700;
+}
+
+.toggleBtnContainer button {
+  font-size: 16px;
+  width: 85px;
+  padding: 6px 8px;
+  background-color: var(--color-gray-05);
+}
+.toggleBtnContainer .active {
+  background-color: var(--color-gray-01);
+  color: var(--color-gray-06);
+}
+
+.toggleBtnContainer button:first-child {
+  border-radius: 5px 0 0 5px;
+}
+
+.toggleBtnContainer button:last-child {
+  border-radius: 0 5px 5px 0; 
+}
+
+
+/* MAP STUFF */
+
+
+#map-container {
+  position: relative;
+  width: 100%;
+  height: calc(100% - 64px);  /* To accommodate the top bar */
+}
+
+#legend {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  padding: 16px;
+  background-color: var(--color-gray-06);
+  border: 0.5px dashed var(--color-gray-05);
+  border-radius: 3px;
+  color: var(--color-gray-01);
+  display: flex;
+  gap: 12px;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+#legend .legendMarker {
+  border-radius: 200px;
+}
+
+#legend figure {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.maplibregl-popup-tip {
+    display: none;
+}
+
+.maplibregl-popup-content {
+    padding: 0px;
+    background: none;
+}
+
+.tier1Marker {
+    background:  radial-gradient(circle at center center, rgba(242,94,255,0.5), rgba(0,0,0,0));
+}
+  
+.tier2Marker {
+    background: radial-gradient(circle at center center, rgba(0,148,255,0.5), rgba(0,0,0,0));
+}
+
+.tier3Marker {
+    background: radial-gradient(circle at center center, rgba(70,228,171,0.5), rgba(0,0,0,0));
+}
+
+.tier4Marker {
+    background: radial-gradient(circle at center center, rgba(192,191,191,0.5), rgba(0,0,0,0));
 }
