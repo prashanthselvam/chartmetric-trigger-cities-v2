@@ -1,7 +1,12 @@
 @import url("https://unpkg.com/maplibre-gl/dist/maplibre-gl.css");
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 :root {
   --color-gray-01: rgba(244, 244, 244, 1);
+  --color-gray-03: rgba(158, 158, 160, 1);
   --color-gray-05: rgba(72, 72, 75, 1);
   --color-gray-06: rgba(29, 29, 33, 1);
 
@@ -97,9 +102,13 @@
 
 .mapMarker {
   opacity: 0.6;
-  border-radius: 200;
+  border-radius: 200px;
   outline: 0.75px solid var(--color-gray-01);
   outline-offset: -5px;
+}
+
+.mapMarker:hover {
+  cursor: pointer;
 }
 
 .tier1Marker {
@@ -116,4 +125,126 @@
 
 .tier4Marker {
     background: radial-gradient(circle at center center, var(--color-tier-4), rgba(0,0,0,0) 80%);
+}
+
+
+/* Popup Dialog */
+
+.popupContainer {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popupMain {
+  display: flex;
+  background: linear-gradient(127.23deg, #1D1D21 28.41%, #26262B 111.37%);
+  color: var(--color-gray-01);
+  border-radius: 6px;
+}
+
+.cityImage {
+  position: relative;
+  background-image: url('https://placehold.co/324x149/png');
+  width: 324px;
+  height: 149px;
+  border-top-left-radius: 6px;
+}
+
+.cityImage h4 {
+  position: absolute;
+  background-color: var(--color-gray-06);
+  color: var(--color-gray-01);
+  font-weight: 600;
+  font-size: 0.8rem;
+  padding: 11px 8px;
+  text-transform: uppercase;
+  line-height: 100%;
+  margin: 0;
+  top: 21px;
+  left: 25px;
+  border-radius: 8px;
+}
+
+.cityInfo {
+  width: 324px;
+  padding: 0px 40px;
+}
+
+.cityInfoTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 0.75px solid var(--color-gray-03);
+}
+
+.cityInfoTitle h3 {
+  font-size: 1.5rem;
+  line-height: 0%;
+}
+
+.cityInfoTitle p {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.cityInfoDesc {
+  font-size: 0.82rem;
+}
+
+.popupStatsPane {
+  width: 290px;
+  border-left: 1px solid var(--color-gray-05);
+  padding: 20px 40px 0px 40px;
+}
+
+.tierPill {
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  background: var(--color-tier-3);
+  box-shadow: 0 0 20px 2px var(--color-tier-3), inset 0 0 10px var(--color-gray-06);
+  padding: 10px 0;
+  border-radius: 8px;
+  outline: 0.75px solid var(--color-gray-01);
+  outline-offset: -3px;
+  font-weight: 600;
+  filter: brightness(80%);  
+}
+
+.statsContainer {
+  margin-top: 22px;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 18px;
+}
+
+.statsTitle {
+  margin-bottom: 0;
+  padding-bottom: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-bottom: 0.75px solid var(--color-gray-03);
+}
+
+.statsPopulation {
+  margin-top: 8px;
+}
+
+.genreItem {
+  font-size: 1rem;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--color-gray-05);
+}
+
+.genreItem span {
+  float: right;
+}
+
+
+.dialog-panel[data-closed] {
+  transform: scale(0.95);
+  opacity: 1;
 }

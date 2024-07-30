@@ -1,6 +1,7 @@
 import React, { SVGProps } from 'react';
 import './App.css';
 import TriggerCitiesMap from './components/Map';
+import { Dialog, DialogPanel, DialogTitle } from '@headlessui/react';
 
 const Logo = (props: SVGProps<SVGSVGElement>) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={34} height={35} fill="none" {...props}>

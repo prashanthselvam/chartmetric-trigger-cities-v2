@@ -1,3 +1,7 @@
+html {
+  padding-right: 0px !important;
+}
+
 body {
   margin: 0;
   overflow-x: hidden;
