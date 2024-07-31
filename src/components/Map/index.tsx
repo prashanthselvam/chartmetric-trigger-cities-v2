@@ -195,7 +195,10 @@ const PopupContent: React.FC<TPopupContentProps> = ({ city, handleClose, isPopup
               </div>
             </div>
             <div className="popupStatsPane">
-              <div className={`tierPill ${pillClassName}`}>{city?.TRIGGER_CITY_TIER}</div>
+              <div className="tierPillContainer">
+                <div className={`tierPill ${pillClassName}`}>{city?.TRIGGER_CITY_TIER}</div>
+                <p>{city?.TRIGGER_CITY_TIER}</p>
+              </div>
               <div className="statsContainer">
                 <div>
                   <p className="statsTitle">Population</p>
