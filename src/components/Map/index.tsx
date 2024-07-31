@@ -30,7 +30,7 @@ const TriggerCitiesMap = () => {
           mapStyle="https://prashanthselvam.github.io/chartmetric-trigger-cities-v2/map_style.json"
           scrollZoom={false}
         >
-          {CITIES.map((city) => (
+          {CITIES.map((city, idx) => (
             <TriggerCityMarker
               key={city.CITY_ID}
               city={city}
@@ -41,6 +41,7 @@ const TriggerCitiesMap = () => {
               }}
               hoverTier={hoverTier}
               setHoverTier={setHoverTier}
+              markerIdx={idx}
             />
           ))}
           {/* <Popup
@@ -96,9 +97,10 @@ type TriggerCityMarkerProps = {
   onClick: (city: TCity) => void;
   hoverTier: string | null;
   setHoverTier: (v: string | null) => void;
+  markerIdx: number;
 };
 
-const TriggerCityMarker: React.FC<TriggerCityMarkerProps> = ({ city, onClick, setHoverTier, hoverTier }) => {
+const TriggerCityMarker: React.FC<TriggerCityMarkerProps> = ({ city, onClick, setHoverTier, hoverTier, markerIdx }) => {
   const tierToClassName = {
     'Tier 1': 'tier1Marker',
     'Tier 2': 'tier2Marker',
@@ -108,20 +110,24 @@ const TriggerCityMarker: React.FC<TriggerCityMarkerProps> = ({ city, onClick, se
   const className = tierToClassName?.[city.TRIGGER_CITY_TIER as 'Tier 1' | 'Tier 2' | 'Tier 3' | 'Tier 4'];
   const size = `${getMarkerSize(city.CITY_POPULATION)}px`;
 
+  const tierNumber = parseInt(city.TRIGGER_CITY_TIER.slice(-1));
+
   return (
-    <Marker
-      longitude={city.CITY_LNG}
-      latitude={city.CITY_LAT}
-      anchor="bottom"
-      className={`mapMarker ${className}`}
-      style={{ height: size, width: size, opacity: !!hoverTier && city.TRIGGER_CITY_TIER !== hoverTier ? 0.4 : 1 }}
-      onClick={() => onClick(city)}
-    >
-      <div
-        onMouseEnter={() => setHoverTier(city.TRIGGER_CITY_TIER)}
-        onMouseLeave={() => setHoverTier(null)}
-        style={{ height: '100%', width: '100%' }}
-      />
+    <Marker longitude={city.CITY_LNG} latitude={city.CITY_LAT} anchor="bottom" onClick={() => onClick(city)}>
+      <motion.div
+        initial={{ opacity: 0, y: -25 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.3, delay: tierNumber * 0.5 }}
+      >
+        <div
+          onMouseEnter={() => setHoverTier(city.TRIGGER_CITY_TIER)}
+          onMouseLeave={() => setHoverTier(null)}
+          className={`mapMarker ${className}`}
+          style={{ height: size, width: size, opacity: !!hoverTier && city.TRIGGER_CITY_TIER !== hoverTier ? 0.4 : 1 }}
+        />
+      </motion.div>
     </Marker>
   );
 };
