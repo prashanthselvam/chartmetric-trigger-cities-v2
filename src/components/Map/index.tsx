@@ -12,6 +12,7 @@ const maxPopulation = CITIES.sort((city1, city2) => city2.CITY_POPULATION - city
 const TriggerCitiesMap = () => {
   const [popupCity, setPopupCity] = React.useState<TCity | null>(null);
   const [hoverTier, setHoverTier] = React.useState<string | null>(null);
+  const [isPopupOpen, setIsPopupOpen] = React.useState(false);
   const mapRef = React.useRef(null);
 
   return (
@@ -35,6 +36,7 @@ const TriggerCitiesMap = () => {
               onClick={(city: TCity) => {
                 setHoverTier(null);
                 setPopupCity(city);
+                setIsPopupOpen(true);
               }}
               hoverTier={hoverTier}
               setHoverTier={setHoverTier}
@@ -83,7 +85,9 @@ const TriggerCitiesMap = () => {
           </figure>
         </div>
       </div>
-      <PopupContent city={popupCity} handleClose={() => setPopupCity(null)} />
+      {!!popupCity && (
+        <PopupContent city={popupCity} handleClose={() => setIsPopupOpen(false)} isPopupOpen={isPopupOpen} />
+      )}
     </>
   );
 };
@@ -133,15 +137,16 @@ const getMarkerSize = (cityPopulation: number) => {
 };
 
 type TPopupContentProps = {
-  city: TCity | null;
+  city: TCity;
   handleClose: () => void;
+  isPopupOpen: boolean;
 };
 
-const PopupContent: React.FC<TPopupContentProps> = ({ city, handleClose }) => {
+const PopupContent: React.FC<TPopupContentProps> = ({ city, handleClose, isPopupOpen }) => {
   return (
-    <Dialog open={!!city} as="div" className="popupContainer" onClose={handleClose}>
+    <Dialog open={isPopupOpen} as="div" className="popupContainer" onClose={handleClose}>
       <DialogBackdrop className="popupBackdrop" />
-      <DialogPanel className="popupMain" data-closed={!city}>
+      <DialogPanel transition className="popupMain">
         <div>
           <div className="cityImage">
             <div className="cityImageOverlay" />
