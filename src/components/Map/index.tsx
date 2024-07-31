@@ -1,21 +1,42 @@
 import * as React from 'react';
 import { Dialog, DialogBackdrop, DialogPanel } from '@headlessui/react';
 import Map, { Marker, NavigationControl } from 'react-map-gl/maplibre';
-import { CITIES } from '../../content';
 import './styles.css';
 import { AnimatePresence, motion } from 'framer-motion';
 import { FigCaption, H3, H4, P } from '../Base';
 
-type TCity = (typeof CITIES)[0];
-
-const minPopulation = CITIES.sort((city1, city2) => city1.CITY_POPULATION - city2.CITY_POPULATION)[0].CITY_POPULATION;
-const maxPopulation = CITIES.sort((city1, city2) => city2.CITY_POPULATION - city1.CITY_POPULATION)[0].CITY_POPULATION;
+type TCity = {
+  CITY_ID: number;
+  CITY_NAME: string;
+  TRIGGER_CITY_COUNT: number;
+  TRIGGER_CITY_TIER: string;
+  CITY_POPULATION: number;
+  CITY_LAT: number;
+  CITY_LNG: number;
+  COUNTRY_NAME: string;
+  CONTINENT: string;
+  CITY_TOP_GENRE: string;
+  CITY_TOP_5_GENRES: string[];
+  CITY_DESC: string;
+  CITY_IMAGE: string;
+};
 
 const TriggerCitiesMap = () => {
+  const [cities, setCities] = React.useState<TCity[]>([]);
   const [popupCity, setPopupCity] = React.useState<TCity | null>(null);
   const [hoverTier, setHoverTier] = React.useState<string | null>(null);
   const [isPopupOpen, setIsPopupOpen] = React.useState(false);
   const mapRef = React.useRef(null);
+
+  const minPopulation = cities.sort((city1, city2) => city1.CITY_POPULATION - city2.CITY_POPULATION)[0].CITY_POPULATION;
+  const maxPopulation = cities.sort((city1, city2) => city2.CITY_POPULATION - city1.CITY_POPULATION)[0].CITY_POPULATION;
+
+  React.useEffect(() => {
+    fetch('https://prashanthselvam.github.io/chartmetric-trigger-cities-v2/cities.json')
+      .then((response) => response.json())
+      .then((data) => setCities(data))
+      .catch((error) => console.error('Error fetching cities:', error));
+  }, []);
 
   return (
     <>
@@ -31,7 +52,7 @@ const TriggerCitiesMap = () => {
           mapStyle="https://prashanthselvam.github.io/chartmetric-trigger-cities-v2/map_style.json"
           scrollZoom={false}
         >
-          {CITIES.map((city, idx) => (
+          {cities.map((city, idx) => (
             <TriggerCityMarker
               key={city.CITY_ID}
               city={city}
@@ -43,6 +64,8 @@ const TriggerCitiesMap = () => {
               hoverTier={hoverTier}
               setHoverTier={setHoverTier}
               markerIdx={idx}
+              minPopulation={minPopulation}
+              maxPopulation={maxPopulation}
             />
           ))}
           {/* <Popup
@@ -99,9 +122,19 @@ type TriggerCityMarkerProps = {
   hoverTier: string | null;
   setHoverTier: (v: string | null) => void;
   markerIdx: number;
+  minPopulation: number;
+  maxPopulation: number;
 };
 
-const TriggerCityMarker: React.FC<TriggerCityMarkerProps> = ({ city, onClick, setHoverTier, hoverTier, markerIdx }) => {
+const TriggerCityMarker: React.FC<TriggerCityMarkerProps> = ({
+  city,
+  onClick,
+  setHoverTier,
+  hoverTier,
+  markerIdx,
+  minPopulation,
+  maxPopulation,
+}) => {
   const tierToClassName = {
     'Tier 1': 'tier1Marker',
     'Tier 2': 'tier2Marker',
@@ -109,7 +142,7 @@ const TriggerCityMarker: React.FC<TriggerCityMarkerProps> = ({ city, onClick, se
     'Tier 4': 'tier4Marker',
   };
   const className = tierToClassName?.[city.TRIGGER_CITY_TIER as 'Tier 1' | 'Tier 2' | 'Tier 3' | 'Tier 4'];
-  const size = `${getMarkerSize(city.CITY_POPULATION)}px`;
+  const size = `${getMarkerSize(city.CITY_POPULATION, minPopulation, maxPopulation)}px`;
 
   const tierNumber = parseInt(city.TRIGGER_CITY_TIER.slice(-1));
 
@@ -133,10 +166,10 @@ const TriggerCityMarker: React.FC<TriggerCityMarkerProps> = ({ city, onClick, se
   );
 };
 
-const getMarkerSize = (cityPopulation: number) => {
+const getMarkerSize = (cityPopulation: number, min: number, max: number) => {
   const minSize = 22;
   const maxSize = 92;
-  const ratio = (cityPopulation - minPopulation) / (maxPopulation - minPopulation);
+  const ratio = (cityPopulation - min) / (max - min);
   const size = ratio * (maxSize - minSize) + minSize;
 
   return Math.floor(size);
