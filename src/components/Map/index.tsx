@@ -127,6 +127,7 @@ const PopupContent: React.FC<TPopupContentProps> = ({ city, handleClose }) => {
       <DialogPanel className="popupMain" data-closed={!city}>
         <div>
           <div className="cityImage">
+            <div className="cityImageOverlay" />
             <h4>{city?.CONTINENT}</h4>
           </div>
           <div className="cityInfo">

@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+* {
+  margin: 0;
+}
+
 :root {
   --color-gray-01: rgba(244, 244, 244, 1);
   --color-gray-03: rgba(158, 158, 160, 1);
@@ -138,6 +142,10 @@
   justify-content: center;
 }
 
+.popupContainer:focus-visible {
+  outline: none !important;
+}
+
 .popupMain {
   display: flex;
   background: linear-gradient(127.23deg, #1D1D21 28.41%, #26262B 111.37%);
@@ -147,10 +155,20 @@
 
 .cityImage {
   position: relative;
-  background-image: url('https://placehold.co/324x149/png');
-  width: 324px;
+  background-image: url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?q=80&w=3044&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-size: cover;
+  min-width: 324px;
   height: 149px;
   border-top-left-radius: 6px;
+}
+
+.cityImageOverlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(29,29,33,0.65) 85%, rgba(29,29,33,1) 100%);
 }
 
 .cityImage h4 {
@@ -169,8 +187,9 @@
 }
 
 .cityInfo {
-  width: 324px;
-  padding: 0px 40px;
+  min-width: 324px;
+  max-width: min-content;
+  padding: 16px 40px 40px 40px;
 }
 
 .cityInfoTitle {
@@ -178,6 +197,11 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: 0.75px solid var(--color-gray-03);
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+  width: 100%;
+  white-space: nowrap;
+  gap: 24px;
 }
 
 .cityInfoTitle h3 {
@@ -192,6 +216,7 @@
 
 .cityInfoDesc {
   font-size: 0.82rem;
+  width: 100%;
 }
 
 .popupStatsPane {
@@ -218,7 +243,8 @@
   margin-top: 22px;
   display: flex;
   flex-direction: column;
-  padding-bottom: 18px;
+  gap: 24px;
+  padding-bottom: 22px;
 }
 
 .statsTitle {
@@ -235,14 +261,13 @@
 
 .genreItem {
   font-size: 1rem;
-  padding-bottom: 6px;
+  padding: 12px 0px 8px 0px;
   border-bottom: 1px solid var(--color-gray-05);
 }
 
 .genreItem span {
   float: right;
 }
-
 
 .dialog-panel[data-closed] {
   transform: scale(0.95);
