@@ -259,6 +259,7 @@
   width: 100%;
   text-align: center;
   text-transform: uppercase;
+  margin: 0 !important
 }
 
 .tierPillContainer div {
@@ -317,6 +318,7 @@
   font-size: 1rem;
   padding: 12px 0px 8px 0px;
   border-bottom: 1px solid var(--color-gray-05);
+  margin: 0 !important;
 }
 
 .genreItem span {
