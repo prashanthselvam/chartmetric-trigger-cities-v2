@@ -1,6 +1,6 @@
 import React, { SVGProps } from 'react';
 import './App.css';
-import TriggerCitiesMap from './components/Map';
+import TriggerCitiesMap, { TCity } from './components/Map';
 import { H1 } from './components/Base';
 
 const Logo = (props: SVGProps<SVGSVGElement>) => (
@@ -32,21 +32,27 @@ const ToggleButton: React.FC<TToggleButtonProps> = ({ active, setActive }) => {
 
 const FlourishEmbed = () => {
   React.useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://public.flourish.studio/resources/embed.js';
-    script.async = true;
-    document.body.appendChild(script);
+    const el = document.getElementById('flourish-real');
 
-    return () => {
-      document.body.removeChild(script);
-    };
+    if (el?.children.length == 0) {
+      // @ts-ignore
+      window.Flourish.loadEmbed(el);
+    }
   }, []);
 
-  return <div className="flourish-embed flourish-table" data-src="visualisation/18671732"></div>;
+  return <div id="flourish-real" className="flourish-embed flourish-table" data-src="visualisation/18671732"></div>;
 };
 
 function App() {
   const [active, setActive] = React.useState<'MAP' | 'TABLE'>('MAP');
+  const [cities, setCities] = React.useState<TCity[]>([]);
+
+  React.useEffect(() => {
+    fetch('https://prashanthselvam.github.io/chartmetric-trigger-cities-v2/cities.json')
+      .then((response) => response.json())
+      .then((data) => setCities(data))
+      .catch((error) => console.error('Error fetching cities:', error));
+  }, []);
 
   return (
     <div className="App">
@@ -55,8 +61,12 @@ function App() {
         <H1>Trigger Cities</H1>
         <ToggleButton active={active} setActive={setActive} />
       </div>
-      {active === 'MAP' && <TriggerCitiesMap />}
-      {active === 'TABLE' && <FlourishEmbed />}
+      <div style={{ height: 'calc(100% - 64px)' }} className={active === 'MAP' ? 'visible' : 'hidden'}>
+        <TriggerCitiesMap cities={cities} />
+      </div>
+      <div className={active === 'TABLE' ? 'visible' : 'hidden'}>
+        <FlourishEmbed />
+      </div>
     </div>
   );
 }

@@ -1,3 +1,5 @@
+// This is not being used. We pull the data from cities.json. But leaving this around in case we need it.
+
 export const CITIES = [
   {
     CITY_ID: 1669,

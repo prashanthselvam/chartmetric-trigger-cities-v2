@@ -20,6 +20,14 @@
   --color-tier-4: rgba(192, 191, 191, 1);
 }
 
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+}
+
 .base-text {
   margin: 0;
 }
@@ -71,7 +79,7 @@
 #map-container {
   position: relative;
   width: 100%;
-  height: calc(100% - 64px);  /* To accommodate the top bar */
+  height: 100%;  /* To accommodate the top bar */
   background-image: url("https://images.unsplash.com/photo-1579547945478-a6681fb3c3c9?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
   background-size: 'cover';
   background-position: 'center';

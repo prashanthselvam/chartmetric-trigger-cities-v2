@@ -5,7 +5,7 @@ import './styles.css';
 import { AnimatePresence, motion } from 'framer-motion';
 import { FigCaption, H3, H4, P } from '../Base';
 
-type TCity = {
+export type TCity = {
   CITY_ID: number;
   CITY_NAME: string;
   TRIGGER_CITY_COUNT: number;
@@ -21,22 +21,20 @@ type TCity = {
   CITY_IMAGE: string;
 };
 
-const TriggerCitiesMap = () => {
-  const [cities, setCities] = React.useState<TCity[]>([]);
+type TTriggerCitiesMapProps = {
+  cities: TCity[];
+};
+
+const TriggerCitiesMap: React.FC<TTriggerCitiesMapProps> = ({ cities }) => {
   const [popupCity, setPopupCity] = React.useState<TCity | null>(null);
   const [hoverTier, setHoverTier] = React.useState<string | null>(null);
   const [isPopupOpen, setIsPopupOpen] = React.useState(false);
   const mapRef = React.useRef(null);
 
-  const minPopulation = cities.sort((city1, city2) => city1.CITY_POPULATION - city2.CITY_POPULATION)[0].CITY_POPULATION;
-  const maxPopulation = cities.sort((city1, city2) => city2.CITY_POPULATION - city1.CITY_POPULATION)[0].CITY_POPULATION;
-
-  React.useEffect(() => {
-    fetch('https://prashanthselvam.github.io/chartmetric-trigger-cities-v2/cities.json')
-      .then((response) => response.json())
-      .then((data) => setCities(data))
-      .catch((error) => console.error('Error fetching cities:', error));
-  }, []);
+  const minPopulation =
+    cities.sort((city1, city2) => city1.CITY_POPULATION - city2.CITY_POPULATION)?.[0]?.CITY_POPULATION ?? 0;
+  const maxPopulation =
+    cities.sort((city1, city2) => city2.CITY_POPULATION - city1.CITY_POPULATION)?.[0]?.CITY_POPULATION ?? 100000;
 
   return (
     <>
