@@ -11,6 +11,10 @@ export const CITIES = [
     CONTINENT: 'South America',
     CITY_TOP_GENRE: 'Pop',
     CITY_TOP_5_GENRES: ['Pop', 'Rock', 'Latin', 'Alternative', 'Latin Pop'],
+    CITY_DESC:
+      'Santiago, the capital of Chile, is a vibrant city surrounded by the Andes mountains. It is known for its colonial architecture, diverse culture, and bustling markets.\n\nThe city offers a mix of modern infrastructure and historical landmarks, making it a dynamic place for both residents and visitors.',
+    CITY_IMAGE:
+      'https://plus.unsplash.com/premium_photo-1677344343928-577750752799?q=80&w=3000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     CITY_ID: 4072,
@@ -24,6 +28,10 @@ export const CITIES = [
     CONTINENT: 'North America',
     CITY_TOP_GENRE: 'Latin',
     CITY_TOP_5_GENRES: ['Latin', 'Pop', 'Latin Pop', 'Rock', 'Alternative'],
+    CITY_DESC:
+      'Mexico City, the capital of Mexico, is one of the largest and most vibrant cities in the world. Known for its rich history, cultural heritage, and bustling urban life.\n\nThe city offers everything from ancient Aztec ruins to modern art galleries and lively street markets.',
+    CITY_IMAGE:
+      'https://images.unsplash.com/photo-1493794179168-82ca7cb00437?q=80&w=2971&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     CITY_ID: 7060,
@@ -37,6 +45,10 @@ export const CITIES = [
     CONTINENT: 'North America',
     CITY_TOP_GENRE: 'Hip-Hop/Rap',
     CITY_TOP_5_GENRES: ['Hip-Hop/Rap', 'Pop', 'R&B/Soul', 'Rock', 'Latin'],
+    CITY_DESC:
+      'New York City, often referred to as "The Big Apple", is a global hub for finance, culture, and entertainment. Famous for its iconic skyline, Central Park, and Broadway theaters.\n\nNYC is a melting pot of cultures and a city that never sleeps, offering a diverse range of attractions and experiences.',
+    CITY_IMAGE:
+      'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?q=80&w=3044&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     CITY_ID: 3217,
@@ -50,6 +62,10 @@ export const CITIES = [
     CONTINENT: 'Asia',
     CITY_TOP_GENRE: 'Pop',
     CITY_TOP_5_GENRES: ['Pop', 'Dance', 'R&B/Soul', 'Alternative', 'Rock'],
+    CITY_DESC:
+      'Jakarta, the capital of Indonesia, is a bustling metropolis known for its vibrant culture, historic sites, and dynamic economy. The city features a mix of modern skyscrapers and traditional markets.\n\nJakarta reflects its diverse heritage and rapid development, making it a unique urban experience.',
+    CITY_IMAGE:
+      'https://images.unsplash.com/photo-1622469664041-e4abdc2b5169?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     CITY_ID: 595,
@@ -63,6 +79,10 @@ export const CITIES = [
     CONTINENT: 'Oceania',
     CITY_TOP_GENRE: 'Pop',
     CITY_TOP_5_GENRES: ['Pop', 'Rock', 'Dance', 'Alternative', 'Electronic'],
+    CITY_DESC:
+      "Sydney, Australia's largest city, is renowned for its stunning harbor, iconic Opera House, and beautiful beaches. The city is a major cultural and economic center.\n\nSydney offers a high quality of life and a wealth of attractions for visitors, from historic landmarks to modern marvels.",
+    CITY_IMAGE:
+      'https://plus.unsplash.com/premium_photo-1697730198238-48ee2f2fe1b7?q=80&w=3132&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     CITY_ID: 4679,
@@ -76,10 +96,14 @@ export const CITIES = [
     CONTINENT: 'South America',
     CITY_TOP_GENRE: 'Latin',
     CITY_TOP_5_GENRES: ['Alternative', 'Latin', 'Pop', 'Rock', 'Latin Pop'],
+    CITY_DESC:
+      'Lima, the capital of Peru, is a city rich in history and culture. Known for its colonial architecture, vibrant culinary scene, and coastal views.\n\nLima is a bustling metropolis that blends tradition with modernity, offering a unique and dynamic urban experience.',
+    CITY_IMAGE:
+      'https://images.unsplash.com/photo-1610636409790-64cf9e17b99f?q=80&w=3142&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     CITY_ID: 1172,
-    CITY_NAME: 'S\u00e3o Paulo',
+    CITY_NAME: 'São Paulo',
     TRIGGER_CITY_COUNT: 28,
     TRIGGER_CITY_TIER: 'Tier 2',
     CITY_POPULATION: 18845000,
@@ -89,6 +113,10 @@ export const CITIES = [
     CONTINENT: 'South America',
     CITY_TOP_GENRE: 'Pop',
     CITY_TOP_5_GENRES: ['Alternative', 'Dance', 'Pop', 'Latin', 'Rock'],
+    CITY_DESC:
+      "São Paulo, Brazil's largest city, is a major financial and cultural center. Known for its diverse population, vibrant arts scene, and bustling nightlife.\n\nSão Paulo offers a dynamic urban experience with a mix of modernity and tradition.",
+    CITY_IMAGE:
+      'https://plus.unsplash.com/premium_photo-1683888229109-17cb0975af20?q=80&w=3132&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     CITY_ID: 6291,
@@ -102,6 +130,10 @@ export const CITIES = [
     CONTINENT: 'Europe',
     CITY_TOP_GENRE: 'Pop',
     CITY_TOP_5_GENRES: ['Dance', 'Rock', 'Alternative', 'Pop', 'Electronic'],
+    CITY_DESC:
+      'London, the capital of the United Kingdom, is a historic city known for its rich cultural heritage, iconic landmarks, and diverse neighborhoods. From the Tower of London to the British Museum.\n\nThe city is a global hub for arts, education, and finance, offering a unique blend of old and new.',
+    CITY_IMAGE:
+      'https://plus.unsplash.com/premium_photo-1671809692422-4893b9e09119?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     CITY_ID: 5983,
@@ -115,6 +147,10 @@ export const CITIES = [
     CONTINENT: 'Asia',
     CITY_TOP_GENRE: 'Pop',
     CITY_TOP_5_GENRES: ['K-Pop', 'Alternative', 'Rock', 'Pop', 'R&B/Soul'],
+    CITY_DESC:
+      'Bangkok, the capital of Thailand, is a city known for its vibrant street life, ornate temples, and bustling markets. It is a major tourist destination, offering a mix of traditional Thai culture and modern urban attractions.\n\nThe city is a vibrant metropolis that never sleeps, providing a rich cultural experience.',
+    CITY_IMAGE:
+      'https://plus.unsplash.com/premium_photo-1682098240884-9dfc7bf048f0?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     CITY_ID: 3828,
@@ -128,10 +164,14 @@ export const CITIES = [
     CONTINENT: 'Asia',
     CITY_TOP_GENRE: 'Pop',
     CITY_TOP_5_GENRES: ['K-Pop', 'Alternative', 'R&B/Soul', 'Alternative Rock', 'Pop'],
+    CITY_DESC:
+      'Kuala Lumpur, the capital of Malaysia, is a bustling city known for its modern skyline dominated by the iconic Petronas Twin Towers. The city offers a vibrant mix of cultures, cuisines, and traditions.\n\nKuala Lumpur is a major cultural and financial hub in Southeast Asia.',
+    CITY_IMAGE:
+      'https://plus.unsplash.com/premium_photo-1700955569575-439bed2d50f2?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     CITY_ID: 2141,
-    CITY_NAME: 'Bogot\u00e1',
+    CITY_NAME: 'Bogotá',
     TRIGGER_CITY_COUNT: 24,
     TRIGGER_CITY_TIER: 'Tier 2',
     CITY_POPULATION: 7963000,
@@ -141,6 +181,10 @@ export const CITIES = [
     CONTINENT: 'South America',
     CITY_TOP_GENRE: 'Latin',
     CITY_TOP_5_GENRES: ['Latin', 'Pop', 'Rock', 'Latin Pop', 'Alternative'],
+    CITY_DESC:
+      'Bogotá, the capital of Colombia, is a city rich in culture and history. Known for its vibrant arts scene, historic districts, and lively festivals.\n\nBogotá is a dynamic city that offers a mix of modernity and tradition, with numerous attractions for residents and visitors.',
+    CITY_IMAGE:
+      'https://plus.unsplash.com/premium_photo-1697729999190-4cd4ae78be26?q=80&w=3133&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     CITY_ID: 5464,
@@ -154,6 +198,10 @@ export const CITIES = [
     CONTINENT: 'Asia',
     CITY_TOP_GENRE: 'Pop',
     CITY_TOP_5_GENRES: ['Pop', 'Rock', 'Alternative', 'Dance', 'R&B/Soul'],
+    CITY_DESC:
+      'Singapore is a global city known for its cleanliness, efficiency, and modern architecture. As a major financial hub, it offers a high quality of life, diverse cultural attractions, and a renowned culinary scene.\n\nSingapore is a city-state that blends tradition with innovation, offering a unique urban experience.',
+    CITY_IMAGE:
+      'https://images.unsplash.com/photo-1441805983468-f5a1a9f985fb?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     CITY_ID: 7058,
@@ -167,6 +215,10 @@ export const CITIES = [
     CONTINENT: 'North America',
     CITY_TOP_GENRE: 'Pop',
     CITY_TOP_5_GENRES: ['Alternative', 'Latin', 'Rock', 'Pop', 'Hip-Hop/Rap'],
+    CITY_DESC:
+      'Los Angeles, often known as LA, is a sprawling city in California famous for its entertainment industry, beautiful beaches, and diverse neighborhoods. Home to Hollywood, LA is a cultural melting pot.\n\nThe city is a major hub for film and television, offering numerous attractions and a vibrant lifestyle.',
+    CITY_IMAGE:
+      'https://plus.unsplash.com/premium_photo-1670185510638-6427989f7efa?q=80&w=2969&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     CITY_ID: 4069,
@@ -180,6 +232,10 @@ export const CITIES = [
     CONTINENT: 'North America',
     CITY_TOP_GENRE: 'Latin',
     CITY_TOP_5_GENRES: ['Latin', 'Pop', 'Rock', 'Latin Pop', 'Alternative'],
+    CITY_DESC:
+      'Guadalajara, known as the cultural center of Mexico, is renowned for its mariachi music, tequila, and vibrant festivals. The city blends historic architecture with modern developments.\n\nGuadalajara offers a rich cultural experience with numerous attractions for residents and visitors.',
+    CITY_IMAGE:
+      'https://plus.unsplash.com/premium_photo-1677344343928-577750752799?q=80&w=3000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     CITY_ID: 3215,
@@ -193,6 +249,10 @@ export const CITIES = [
     CONTINENT: 'Asia',
     CITY_TOP_GENRE: 'Pop',
     CITY_TOP_5_GENRES: ['Pop', 'Alternative', 'R&B/Soul', 'Rock', 'Alternative Rock'],
+    CITY_DESC:
+      'Bandung, known as the "Paris of Java", is famous for its universities, colonial and art deco architecture, and vibrant cultural scene. It is a major educational center.\n\nBandung is a popular destination for shopping and culinary tourism, offering a unique urban experience.',
+    CITY_IMAGE:
+      'https://plus.unsplash.com/premium_photo-1677344343928-577750752799?q=80&w=3000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     CITY_ID: 594,
@@ -206,6 +266,10 @@ export const CITIES = [
     CONTINENT: 'Oceania',
     CITY_TOP_GENRE: 'Pop',
     CITY_TOP_5_GENRES: ['Pop', 'Rock', 'Alternative', 'Dance', 'Electronic'],
+    CITY_DESC:
+      'Melbourne, the cultural capital of Australia, is known for its vibrant arts scene, diverse food culture, and historic architecture. The city hosts numerous international festivals and events.\n\nMelbourne offers a lively and dynamic urban center with a mix of old and new attractions.',
+    CITY_IMAGE:
+      'https://images.unsplash.com/photo-1545044846-351ba102b6d5?q=80&w=3174&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     CITY_ID: 7057,
@@ -219,6 +283,10 @@ export const CITIES = [
     CONTINENT: 'North America',
     CITY_TOP_GENRE: 'Pop',
     CITY_TOP_5_GENRES: ['Pop', 'Hip-Hop/Rap', 'Rock', 'R&B/Soul', 'Alternative'],
+    CITY_DESC:
+      'Chicago, known as the "Windy City", is famous for its impressive skyline, deep-dish pizza, and rich cultural heritage. Located on the shores of Lake Michigan, it is a major center for finance, industry, and the arts.\n\nChicago offers a mix of historic architecture and modern attractions, making it a vibrant urban destination.',
+    CITY_IMAGE:
+      'https://images.unsplash.com/photo-1494522855154-9297ac14b55f?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     CITY_ID: 362,
@@ -232,6 +300,10 @@ export const CITIES = [
     CONTINENT: 'South America',
     CITY_TOP_GENRE: 'Pop',
     CITY_TOP_5_GENRES: ['Pop', 'Latin', 'Rock', 'Latin Pop', 'Alternative'],
+    CITY_DESC:
+      'Buenos Aires, the capital of Argentina, is known for its European-style architecture, rich cultural life, and passionate tango dance. The city offers a mix of old-world charm and modern attractions, making it a vibrant destination.\n\nBuenos Aires is a bustling metropolis that seamlessly blends tradition and innovation.',
+    CITY_IMAGE:
+      'https://plus.unsplash.com/premium_photo-1677344343928-577750752799?q=80&w=3000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     CITY_ID: 4689,
@@ -245,6 +317,10 @@ export const CITIES = [
     CONTINENT: 'Asia',
     CITY_TOP_GENRE: 'Pop',
     CITY_TOP_5_GENRES: ['Pop', 'Alternative', 'Alternative Rock', 'Hip-Hop/Rap', 'Rock'],
+    CITY_DESC:
+      'Quezon City, the largest city in Metro Manila, is known for its bustling urban life, educational institutions, and government buildings. It is a major cultural and entertainment hub in the Philippines.\n\nThe city offers a vibrant mix of modernity and tradition, with numerous attractions for residents and visitors.',
+    CITY_IMAGE:
+      'https://plus.unsplash.com/premium_photo-1697730198238-48ee2f2fe1b7?q=80&w=3132&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     CITY_ID: 3493,
@@ -258,6 +334,10 @@ export const CITIES = [
     CONTINENT: 'Asia',
     CITY_TOP_GENRE: 'Pop',
     CITY_TOP_5_GENRES: ['Rock', 'Hip-Hop/Rap', 'Alternative', 'Pop', 'J-Pop'],
+    CITY_DESC:
+      'Tokyo, the capital of Japan, is a bustling metropolis known for its cutting-edge technology, vibrant culture, and historic landmarks. The city seamlessly blends tradition with innovation.\n\nTokyo offers a unique urban experience with attractions ranging from ancient temples to modern skyscrapers.',
+    CITY_IMAGE:
+      'https://plus.unsplash.com/premium_photo-1661902398022-762e88ff3f82?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     CITY_ID: 16043,
@@ -271,6 +351,10 @@ export const CITIES = [
     CONTINENT: 'North America',
     CITY_TOP_GENRE: 'Latin',
     CITY_TOP_5_GENRES: ['Latin', 'Latin Pop', 'Christian', 'Pop', 'Latin Hip-Hop/Rap'],
+    CITY_DESC:
+      'Guatemala City, the capital of Guatemala, is the largest city in Central America. It is known for its rich history, cultural landmarks, and vibrant markets.\n\nThe city offers a blend of colonial architecture and modern urban development, making it a dynamic destination.',
+    CITY_IMAGE:
+      'https://plus.unsplash.com/premium_photo-1677344343928-577750752799?q=80&w=3000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     CITY_ID: 6113,
@@ -280,10 +364,14 @@ export const CITIES = [
     CITY_POPULATION: 15029231,
     CITY_LAT: 41.105,
     CITY_LNG: 29.01,
-    COUNTRY_NAME: 'T\u00fcrkiye',
+    COUNTRY_NAME: 'Turkey',
     CONTINENT: 'Asia',
     CITY_TOP_GENRE: 'Pop',
     CITY_TOP_5_GENRES: ['Pop', 'Hip-Hop/Rap', 'Electronic', 'Dance', 'Alternative'],
+    CITY_DESC:
+      'Istanbul, a city straddling two continents, is known for its rich history, stunning architecture, and vibrant culture. Famous for its historic sites like the Hagia Sophia and the Blue Mosque.\n\nIstanbul offers a unique blend of Eastern and Western influences, making it a fascinating destination.',
+    CITY_IMAGE:
+      'https://images.unsplash.com/photo-1518084823714-2f59a7315a39?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     CITY_ID: 2613,
@@ -297,6 +385,10 @@ export const CITIES = [
     CONTINENT: 'Europe',
     CITY_TOP_GENRE: 'Pop',
     CITY_TOP_5_GENRES: ['Rock', 'R&B/Soul', 'Pop', 'Hip-Hop/Rap', 'Electronic'],
+    CITY_DESC:
+      'Paris, the capital of France, is renowned for its art, fashion, and culture. Known as "The City of Light", it is home to iconic landmarks like the Eiffel Tower, the Louvre Museum, and Notre-Dame Cathedral.\n\nParis offers a blend of historic charm and modern sophistication, making it a premier global destination.',
+    CITY_IMAGE:
+      'https://plus.unsplash.com/premium_photo-1697730198238-48ee2f2fe1b7?q=80&w=3132&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     CITY_ID: 5666,
@@ -310,6 +402,10 @@ export const CITIES = [
     CONTINENT: 'Europe',
     CITY_TOP_GENRE: 'Pop',
     CITY_TOP_5_GENRES: ['Dance', 'Pop', 'Latin', 'Latin Pop', 'Electronic'],
+    CITY_DESC:
+      'Madrid, the capital of Spain, is known for its vibrant culture, historic sites, and lively atmosphere. The city offers a rich mix of art, cuisine, and nightlife.\n\nMadrid is a dynamic and exciting destination with numerous attractions for residents and visitors.',
+    CITY_IMAGE:
+      'https://plus.unsplash.com/premium_photo-1677344343928-577750752799?q=80&w=3000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     CITY_ID: 5836,
@@ -323,6 +419,10 @@ export const CITIES = [
     CONTINENT: 'Asia',
     CITY_TOP_GENRE: 'Pop',
     CITY_TOP_5_GENRES: ['K-Pop', 'Soundtracks', 'Pop', 'Classical', 'Rock'],
+    CITY_DESC:
+      'Taipei, the capital of Taiwan, is known for its lively street markets, contemporary buildings, and rich cultural heritage. The city offers a mix of traditional Chinese culture and modern urban life.\n\nTaipei is a vibrant metropolis with attractions like Taipei 101 and the National Palace Museum.',
+    CITY_IMAGE:
+      'https://plus.unsplash.com/premium_photo-1661955975506-04d3812be312?q=80&w=2971&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     CITY_ID: 4258,
@@ -336,6 +436,10 @@ export const CITIES = [
     CONTINENT: 'Europe',
     CITY_TOP_GENRE: 'Pop',
     CITY_TOP_5_GENRES: ['Pop', 'Electronic', 'Dance', 'Rock', 'Alternative'],
+    CITY_DESC:
+      'Amsterdam, the capital of the Netherlands, is known for its artistic heritage, elaborate canal system, and narrow houses with gabled facades. The city is also famous for its museums, coffee shops, and vibrant nightlife.\n\nAmsterdam offers a unique blend of history and modernity, making it a popular destination.',
+    CITY_IMAGE:
+      'https://plus.unsplash.com/premium_photo-1661878122586-2d75a86f3400?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     CITY_ID: 5665,
@@ -349,6 +453,10 @@ export const CITIES = [
     CONTINENT: 'Europe',
     CITY_TOP_GENRE: 'Pop',
     CITY_TOP_5_GENRES: ['Latin Pop', 'Pop', 'Latin', 'Electronic', 'Dance'],
+    CITY_DESC:
+      'Barcelona, the capital of Catalonia, is known for its art and architecture. The city is famous for the Sagrada Família church and other modernist landmarks designed by Antoni Gaudí.\n\nBarcelona also offers beautiful beaches, a vibrant culinary scene, and lively festivals, making it a dynamic destination.',
+    CITY_IMAGE:
+      'https://plus.unsplash.com/premium_photo-1697730198238-48ee2f2fe1b7?q=80&w=3132&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     CITY_ID: 3111,
@@ -362,6 +470,10 @@ export const CITIES = [
     CONTINENT: 'Asia',
     CITY_TOP_GENRE: 'Indian',
     CITY_TOP_5_GENRES: ['Indian', 'Bollywood', 'Soundtracks', 'Pop', 'Electronic'],
+    CITY_DESC:
+      "Mumbai, the financial capital of India, is a bustling metropolis known for its vibrant culture, historic sites, and bustling markets. The city is home to Bollywood, India's film industry.\n\nMumbai offers a mix of modernity and tradition, making it a dynamic and exciting destination.",
+    CITY_IMAGE:
+      'https://images.unsplash.com/photo-1622279488885-d831e8e76cef?q=80&w=2971&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     CITY_ID: 4070,
@@ -375,6 +487,10 @@ export const CITIES = [
     CONTINENT: 'North America',
     CITY_TOP_GENRE: 'Latin',
     CITY_TOP_5_GENRES: ['Latin', 'Pop', 'Rock', 'Latin Pop', 'Alternative'],
+    CITY_DESC:
+      "Puebla City, known for its colonial architecture and vibrant culture, is one of Mexico's most beautiful cities. It is famous for its culinary traditions, including mole poblano, and its rich history.\n\nPuebla City offers numerous attractions for residents and visitors, blending tradition with modernity.",
+    CITY_IMAGE:
+      'https://plus.unsplash.com/premium_photo-1697730198238-48ee2f2fe1b7?q=80&w=3132&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     CITY_ID: 7380,
@@ -388,5 +504,9 @@ export const CITIES = [
     CONTINENT: 'Asia',
     CITY_TOP_GENRE: 'Pop',
     CITY_TOP_5_GENRES: ['Indian', 'Soundtracks', 'Hip-Hop/Rap', 'Electronic', 'Pop'],
+    CITY_DESC:
+      'Bengaluru, also known as Bangalore, is the tech hub of India. Known for its pleasant climate, green spaces, and vibrant nightlife, the city is a major center for IT and startups.\n\nBengaluru offers a unique urban experience with a mix of modernity and tradition, making it an exciting destination.',
+    CITY_IMAGE:
+      'https://plus.unsplash.com/premium_photo-1673240845240-2fce9077a6e9?q=80&w=2969&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
 ];

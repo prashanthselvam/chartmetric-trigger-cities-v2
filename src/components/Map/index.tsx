@@ -175,38 +175,36 @@ const PopupContent: React.FC<TPopupContentProps> = ({ city, handleClose, isPopup
             className="popupMain"
           >
             <div>
-              <div className="cityImage">
+              <div
+                className="cityImage"
+                style={{
+                  backgroundImage: `url(${city.CITY_IMAGE})`,
+                }}
+              >
                 <div className="cityImageOverlay" />
-                <h4>{city?.CONTINENT}</h4>
+                <h4>{city.CONTINENT}</h4>
               </div>
               <div className="cityInfo">
                 <div className="cityInfoTitle">
-                  <h3>{city?.CITY_NAME}</h3>
-                  <p>{city?.COUNTRY_NAME}</p>
+                  <h3>{city.CITY_NAME}</h3>
+                  <p>{city.COUNTRY_NAME}</p>
                 </div>
-                <p className="cityInfoDesc">
-                  Chicago is the most populous city in the U.S. state of Illinois and in the Midwestern United States.
-                  Located on the shore of Lake Michigan, Chicago was incorporated as a city in 1837 near a portage
-                  between the Great Lakes and the Mississippi River watershed.
-                  <br />
-                  <br />
-                  Chicago is the most populous city in the U.S. state of Illinois and in the Midwestern United States.
-                </p>
+                <p className="cityInfoDesc">{city.CITY_DESC}</p>
               </div>
             </div>
             <div className="popupStatsPane">
               <div className="tierPillContainer">
-                <div className={`tierPill ${pillClassName}`}>{city?.TRIGGER_CITY_TIER}</div>
-                <p>{city?.TRIGGER_CITY_TIER}</p>
+                <div className={`tierPill ${pillClassName}`}>{city.TRIGGER_CITY_TIER}</div>
+                <p>{city.TRIGGER_CITY_TIER}</p>
               </div>
               <div className="statsContainer">
                 <div>
                   <p className="statsTitle">Population</p>
-                  <p className="statsPopulation">{city?.CITY_POPULATION.toLocaleString()}</p>
+                  <p className="statsPopulation">{city.CITY_POPULATION.toLocaleString()}</p>
                 </div>
                 <div className="mt-6">
                   <p className="statsTitle">Top 5 Genres</p>
-                  {city?.CITY_TOP_5_GENRES.map((genre, i) => {
+                  {city.CITY_TOP_5_GENRES.map((genre, i) => {
                     return (
                       <p key={genre} className="genreItem">
                         {genre}

@@ -1,7 +1,6 @@
 import React, { SVGProps } from 'react';
 import './App.css';
 import TriggerCitiesMap from './components/Map';
-import { Dialog, DialogPanel, DialogTitle } from '@headlessui/react';
 
 const Logo = (props: SVGProps<SVGSVGElement>) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={34} height={35} fill="none" {...props}>
@@ -12,9 +11,12 @@ const Logo = (props: SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-const ToggleButton = () => {
-  const [active, setActive] = React.useState<'MAP' | 'TABLE'>('MAP');
+type TToggleButtonProps = {
+  active: 'MAP' | 'TABLE';
+  setActive: (v: 'MAP' | 'TABLE') => void;
+};
 
+const ToggleButton: React.FC<TToggleButtonProps> = ({ active, setActive }) => {
   return (
     <div className="toggleBtnContainer">
       <button onClick={() => setActive('MAP')} className={active === 'MAP' ? 'active' : ''}>
@@ -27,15 +29,33 @@ const ToggleButton = () => {
   );
 };
 
+const FlourishEmbed = () => {
+  React.useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://public.flourish.studio/resources/embed.js';
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
+  return <div className="flourish-embed flourish-table" data-src="visualisation/18671732"></div>;
+};
+
 function App() {
+  const [active, setActive] = React.useState<'MAP' | 'TABLE'>('MAP');
+
   return (
     <div className="App">
       <div className="topBar">
         <Logo />
         <h1>Trigger Cities</h1>
-        <ToggleButton />
+        <ToggleButton active={active} setActive={setActive} />
       </div>
-      <TriggerCitiesMap />
+      {active === 'MAP' && <TriggerCitiesMap />}
+      {active === 'TABLE' && <FlourishEmbed />}
     </div>
   );
 }
