@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Dialog, DialogPanel } from '@headlessui/react';
+import { Dialog, DialogBackdrop, DialogPanel } from '@headlessui/react';
 import Map, { Marker, NavigationControl } from 'react-map-gl/maplibre';
 import { CITIES } from '../../content';
 import './styles.css';
@@ -11,6 +11,7 @@ const maxPopulation = CITIES.sort((city1, city2) => city2.CITY_POPULATION - city
 
 const TriggerCitiesMap = () => {
   const [popupCity, setPopupCity] = React.useState<TCity | null>(null);
+  const [hoverTier, setHoverTier] = React.useState<string | null>(null);
   const mapRef = React.useRef(null);
 
   return (
@@ -28,7 +29,16 @@ const TriggerCitiesMap = () => {
           scrollZoom={false}
         >
           {CITIES.map((city) => (
-            <TriggerCityMarker key={city.CITY_ID} city={city} onClick={(city: TCity) => setPopupCity(city)} />
+            <TriggerCityMarker
+              key={city.CITY_ID}
+              city={city}
+              onClick={(city: TCity) => {
+                setHoverTier(null);
+                setPopupCity(city);
+              }}
+              hoverTier={hoverTier}
+              setHoverTier={setHoverTier}
+            />
           ))}
           {/* <Popup
              longitude={popupCity.CITY_LNG}
@@ -43,28 +53,28 @@ const TriggerCitiesMap = () => {
           <NavigationControl position="top-right" showZoom={true} />
         </Map>
         <div id="legend">
-          <figure>
+          <figure onMouseEnter={() => setHoverTier('Tier 1')} onMouseLeave={() => setHoverTier(null)}>
             <div
               className="legendMarker"
               style={{ backgroundColor: 'var(--color-tier-1)', width: '16.1px', height: '16.1px' }}
             />
             <figcaption>Tier 1</figcaption>
           </figure>
-          <figure>
+          <figure onMouseEnter={() => setHoverTier('Tier 2')} onMouseLeave={() => setHoverTier(null)}>
             <div
               className="legendMarker"
               style={{ backgroundColor: 'var(--color-tier-2)', width: '12px', height: '12px' }}
             />
             <figcaption>Tier 2</figcaption>
           </figure>
-          <figure>
+          <figure onMouseEnter={() => setHoverTier('Tier 3')} onMouseLeave={() => setHoverTier(null)}>
             <div
               className="legendMarker"
               style={{ backgroundColor: 'var(--color-tier-3)', width: '9px', height: '9px' }}
             />
             <figcaption>Tier 3</figcaption>
           </figure>
-          <figure>
+          <figure onMouseEnter={() => setHoverTier('Tier 4')} onMouseLeave={() => setHoverTier(null)}>
             <div
               className="legendMarker"
               style={{ backgroundColor: 'var(--color-tier-4)', width: '7px', height: '7px' }}
@@ -81,9 +91,11 @@ const TriggerCitiesMap = () => {
 type TriggerCityMarkerProps = {
   city: TCity;
   onClick: (city: TCity) => void;
+  hoverTier: string | null;
+  setHoverTier: (v: string | null) => void;
 };
 
-const TriggerCityMarker: React.FC<TriggerCityMarkerProps> = ({ city, onClick }) => {
+const TriggerCityMarker: React.FC<TriggerCityMarkerProps> = ({ city, onClick, setHoverTier, hoverTier }) => {
   const tierToClassName = {
     'Tier 1': 'tier1Marker',
     'Tier 2': 'tier2Marker',
@@ -99,10 +111,14 @@ const TriggerCityMarker: React.FC<TriggerCityMarkerProps> = ({ city, onClick }) 
       latitude={city.CITY_LAT}
       anchor="bottom"
       className={`mapMarker ${className}`}
-      style={{ height: size, width: size }}
+      style={{ height: size, width: size, opacity: !!hoverTier && city.TRIGGER_CITY_TIER !== hoverTier ? 0.4 : 1 }}
       onClick={() => onClick(city)}
     >
-      <div style={{ height: 1, width: 1 }} />
+      <div
+        onMouseEnter={() => setHoverTier(city.TRIGGER_CITY_TIER)}
+        onMouseLeave={() => setHoverTier(null)}
+        style={{ height: '100%', width: '100%' }}
+      />
     </Marker>
   );
 };
@@ -124,6 +140,7 @@ type TPopupContentProps = {
 const PopupContent: React.FC<TPopupContentProps> = ({ city, handleClose }) => {
   return (
     <Dialog open={!!city} as="div" className="popupContainer" onClose={handleClose}>
+      <DialogBackdrop className="popupBackdrop" />
       <DialogPanel className="popupMain" data-closed={!city}>
         <div>
           <div className="cityImage">

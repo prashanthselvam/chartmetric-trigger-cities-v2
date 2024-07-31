@@ -95,6 +95,10 @@
   gap: 4px;
 }
 
+#legend figcaption {
+  cursor: default !important;
+}
+
 .maplibregl-popup-tip {
     display: none;
 }
@@ -105,7 +109,6 @@
 }
 
 .mapMarker {
-  opacity: 0.6;
   border-radius: 200px;
   outline: 0.75px solid var(--color-gray-01);
   outline-offset: -5px;
@@ -146,11 +149,20 @@
   outline: none !important;
 }
 
+.popupBackdrop {
+  position: fixed;
+  background: var(--color-gray-06);
+  opacity: .4;
+  inset: 0;
+}
+
 .popupMain {
   display: flex;
   background: linear-gradient(127.23deg, #1D1D21 28.41%, #26262B 111.37%);
   color: var(--color-gray-01);
   border-radius: 6px;
+  z-index: 100;
+  box-shadow: 5.6px 11.2px 11.2px hsl(0deg 0% 0% / 0.33);
 }
 
 .cityImage {
@@ -198,13 +210,14 @@
   align-items: center;
   border-bottom: 0.75px solid var(--color-gray-03);
   padding-bottom: 8px;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   width: 100%;
   white-space: nowrap;
   gap: 24px;
 }
 
 .cityInfoTitle h3 {
+  margin: 0;
   font-size: 1.5rem;
   line-height: 0%;
 }
@@ -257,6 +270,7 @@
 
 .statsPopulation {
   margin-top: 8px;
+  font-size: 1rem;
 }
 
 .genreItem {
