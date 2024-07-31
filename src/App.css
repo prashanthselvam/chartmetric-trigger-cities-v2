@@ -20,6 +20,10 @@
   --color-tier-4: rgba(192, 191, 191, 1);
 }
 
+.base-text {
+  margin: 0;
+}
+
 .topBar {
   display: flex;
   align-items: center;

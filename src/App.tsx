@@ -1,6 +1,7 @@
 import React, { SVGProps } from 'react';
 import './App.css';
 import TriggerCitiesMap from './components/Map';
+import { H1 } from './components/Base';
 
 const Logo = (props: SVGProps<SVGSVGElement>) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={34} height={35} fill="none" {...props}>
@@ -51,7 +52,7 @@ function App() {
     <div className="App">
       <div className="topBar">
         <Logo />
-        <h1>Trigger Cities</h1>
+        <H1>Trigger Cities</H1>
         <ToggleButton active={active} setActive={setActive} />
       </div>
       {active === 'MAP' && <TriggerCitiesMap />}
