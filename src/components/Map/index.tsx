@@ -4,6 +4,7 @@ import Map, { Marker, NavigationControl } from 'react-map-gl/maplibre';
 import { CITIES } from '../../content';
 import './styles.css';
 import { AnimatePresence, motion } from 'framer-motion';
+import { FigCaption, H3, H4, P } from '../Base';
 
 type TCity = (typeof CITIES)[0];
 
@@ -62,28 +63,28 @@ const TriggerCitiesMap = () => {
               className="legendMarker"
               style={{ backgroundColor: 'var(--color-tier-1)', width: '16.1px', height: '16.1px' }}
             />
-            <figcaption>Tier 1</figcaption>
+            <FigCaption>Tier 1</FigCaption>
           </figure>
           <figure onMouseEnter={() => setHoverTier('Tier 2')} onMouseLeave={() => setHoverTier(null)}>
             <div
               className="legendMarker"
               style={{ backgroundColor: 'var(--color-tier-2)', width: '12px', height: '12px' }}
             />
-            <figcaption>Tier 2</figcaption>
+            <FigCaption>Tier 2</FigCaption>
           </figure>
           <figure onMouseEnter={() => setHoverTier('Tier 3')} onMouseLeave={() => setHoverTier(null)}>
             <div
               className="legendMarker"
               style={{ backgroundColor: 'var(--color-tier-3)', width: '9px', height: '9px' }}
             />
-            <figcaption>Tier 3</figcaption>
+            <FigCaption>Tier 3</FigCaption>
           </figure>
           <figure onMouseEnter={() => setHoverTier('Tier 4')} onMouseLeave={() => setHoverTier(null)}>
             <div
               className="legendMarker"
               style={{ backgroundColor: 'var(--color-tier-4)', width: '7px', height: '7px' }}
             />
-            <figcaption>Tier 4</figcaption>
+            <FigCaption>Tier 4</FigCaption>
           </figure>
         </div>
       </div>
@@ -182,34 +183,34 @@ const PopupContent: React.FC<TPopupContentProps> = ({ city, handleClose, isPopup
                 }}
               >
                 <div className="cityImageOverlay" />
-                <h4>{city.CONTINENT}</h4>
+                <H4>{city.CONTINENT}</H4>
               </div>
               <div className="cityInfo">
                 <div className="cityInfoTitle">
-                  <h3>{city.CITY_NAME}</h3>
-                  <p>{city.COUNTRY_NAME}</p>
+                  <H3>{city.CITY_NAME}</H3>
+                  <P>{city.COUNTRY_NAME}</P>
                 </div>
-                <p className="cityInfoDesc">{city.CITY_DESC}</p>
+                <P className="cityInfoDesc">{city.CITY_DESC}</P>
               </div>
             </div>
             <div className="popupStatsPane">
               <div className="tierPillContainer">
                 <div className={`tierPill ${pillClassName}`}>{city.TRIGGER_CITY_TIER}</div>
-                <p>{city.TRIGGER_CITY_TIER}</p>
+                <P>{city.TRIGGER_CITY_TIER}</P>
               </div>
               <div className="statsContainer">
                 <div>
-                  <p className="statsTitle">Population</p>
-                  <p className="statsPopulation">{city.CITY_POPULATION.toLocaleString()}</p>
+                  <P className="statsTitle">Population</P>
+                  <P className="statsPopulation">{city.CITY_POPULATION.toLocaleString()}</P>
                 </div>
                 <div className="mt-6">
-                  <p className="statsTitle">Top 5 Genres</p>
+                  <P className="statsTitle">Top 5 Genres</P>
                   {city.CITY_TOP_5_GENRES.map((genre, i) => {
                     return (
-                      <p key={genre} className="genreItem">
+                      <P key={genre} className="genreItem">
                         {genre}
                         <span className="float-right font-bold text-gray-600">{i}</span>
-                      </p>
+                      </P>
                     );
                   })}
                 </div>

@@ -15,4 +15,8 @@ const H3: FC<TextProps> = ({ children, className }) => <h3 className={`base-text
 
 const H4: FC<TextProps> = ({ children, className }) => <h4 className={`base-text ${className || ''}`}>{children}</h4>;
 
-export { P, H1, H2, H3, H4 };
+const FigCaption: FC<TextProps> = ({ children, className }) => (
+  <figcaption className={`base-text ${className || ''}`}>{children}</figcaption>
+);
+
+export { P, H1, H2, H3, H4, FigCaption };
