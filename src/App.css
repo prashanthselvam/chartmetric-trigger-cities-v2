@@ -245,14 +245,32 @@
   width: 100%;
   text-align: center;
   text-transform: uppercase;
-  background: var(--color-tier-3);
-  box-shadow: 0 0 20px 2px var(--color-tier-3), inset 0 0 10px var(--color-gray-06);
   padding: 10px 0;
   border-radius: 8px;
   outline: 0.75px solid var(--color-gray-01);
   outline-offset: -3px;
   font-weight: 600;
-  filter: brightness(80%);  
+  filter: brightness(70%);  
+}
+
+.tier1Pill {
+  background: var(--color-tier-1);
+  box-shadow: 0 0 20px 2px var(--color-tier-1), inset 0 0 10px var(--color-gray-06);
+}
+
+.tier2Pill {
+  background: var(--color-tier-2);
+  box-shadow: 0 0 20px 2px var(--color-tier-2), inset 0 0 10px var(--color-gray-06);
+}
+
+.tier3Pill {
+  background: var(--color-tier-3);
+  box-shadow: 0 0 20px 2px var(--color-tier-3), inset 0 0 10px var(--color-gray-06);
+}
+
+.tier4Pill {
+  background: var(--color-tier-4);
+  box-shadow: 0 0 20px 2px var(--color-tier-4), inset 0 0 10px var(--color-gray-06);
 }
 
 .statsContainer {

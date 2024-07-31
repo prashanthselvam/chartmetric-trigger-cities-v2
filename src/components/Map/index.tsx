@@ -3,6 +3,7 @@ import { Dialog, DialogBackdrop, DialogPanel } from '@headlessui/react';
 import Map, { Marker, NavigationControl } from 'react-map-gl/maplibre';
 import { CITIES } from '../../content';
 import './styles.css';
+import { AnimatePresence, motion } from 'framer-motion';
 
 type TCity = (typeof CITIES)[0];
 
@@ -85,9 +86,7 @@ const TriggerCitiesMap = () => {
           </figure>
         </div>
       </div>
-      {!!popupCity && (
-        <PopupContent city={popupCity} handleClose={() => setIsPopupOpen(false)} isPopupOpen={isPopupOpen} />
-      )}
+      <PopupContent city={popupCity} handleClose={() => setIsPopupOpen(false)} isPopupOpen={isPopupOpen} />
     </>
   );
 };
@@ -137,58 +136,82 @@ const getMarkerSize = (cityPopulation: number) => {
 };
 
 type TPopupContentProps = {
-  city: TCity;
+  city: TCity | null;
   handleClose: () => void;
   isPopupOpen: boolean;
 };
 
 const PopupContent: React.FC<TPopupContentProps> = ({ city, handleClose, isPopupOpen }) => {
+  const tierToPillClassName = {
+    'Tier 1': 'tier1Pill',
+    'Tier 2': 'tier2Pill',
+    'Tier 3': 'tier3Pill',
+    'Tier 4': 'tier4Pill',
+  };
+  const pillClassName = tierToPillClassName?.[city?.TRIGGER_CITY_TIER as 'Tier 1' | 'Tier 2' | 'Tier 3' | 'Tier 4'];
+
   return (
-    <Dialog open={isPopupOpen} as="div" className="popupContainer" onClose={handleClose}>
-      <DialogBackdrop className="popupBackdrop" />
-      <DialogPanel transition className="popupMain">
-        <div>
-          <div className="cityImage">
-            <div className="cityImageOverlay" />
-            <h4>{city?.CONTINENT}</h4>
-          </div>
-          <div className="cityInfo">
-            <div className="cityInfoTitle">
-              <h3>{city?.CITY_NAME}</h3>
-              <p>{city?.COUNTRY_NAME}</p>
-            </div>
-            <p className="cityInfoDesc">
-              Chicago is the most populous city in the U.S. state of Illinois and in the Midwestern United States.
-              Located on the shore of Lake Michigan, Chicago was incorporated as a city in 1837 near a portage between
-              the Great Lakes and the Mississippi River watershed.
-              <br />
-              <br />
-              Chicago is the most populous city in the U.S. state of Illinois and in the Midwestern United States.
-            </p>
-          </div>
-        </div>
-        <div className="popupStatsPane">
-          <div className="tierPill">{city?.TRIGGER_CITY_TIER}</div>
-          <div className="statsContainer">
+    <AnimatePresence>
+      {city && isPopupOpen && (
+        <Dialog static open={isPopupOpen} as="div" className="popupContainer" onClose={handleClose}>
+          <DialogBackdrop
+            as={motion.div}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.6 }}
+            exit={{ opacity: 0 }}
+            className="popupBackdrop"
+          />
+          <DialogPanel
+            as={motion.div}
+            initial={{ opacity: 0, scale: 0.75 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            className="popupMain"
+          >
             <div>
-              <p className="statsTitle">Population</p>
-              <p className="statsPopulation">{city?.CITY_POPULATION.toLocaleString()}</p>
+              <div className="cityImage">
+                <div className="cityImageOverlay" />
+                <h4>{city?.CONTINENT}</h4>
+              </div>
+              <div className="cityInfo">
+                <div className="cityInfoTitle">
+                  <h3>{city?.CITY_NAME}</h3>
+                  <p>{city?.COUNTRY_NAME}</p>
+                </div>
+                <p className="cityInfoDesc">
+                  Chicago is the most populous city in the U.S. state of Illinois and in the Midwestern United States.
+                  Located on the shore of Lake Michigan, Chicago was incorporated as a city in 1837 near a portage
+                  between the Great Lakes and the Mississippi River watershed.
+                  <br />
+                  <br />
+                  Chicago is the most populous city in the U.S. state of Illinois and in the Midwestern United States.
+                </p>
+              </div>
             </div>
-            <div className="mt-6">
-              <p className="statsTitle">Top 5 Genres</p>
-              {city?.CITY_TOP_5_GENRES.map((genre, i) => {
-                return (
-                  <p key={genre} className="genreItem">
-                    {genre}
-                    <span className="float-right font-bold text-gray-600">{i}</span>
-                  </p>
-                );
-              })}
+            <div className="popupStatsPane">
+              <div className={`tierPill ${pillClassName}`}>{city?.TRIGGER_CITY_TIER}</div>
+              <div className="statsContainer">
+                <div>
+                  <p className="statsTitle">Population</p>
+                  <p className="statsPopulation">{city?.CITY_POPULATION.toLocaleString()}</p>
+                </div>
+                <div className="mt-6">
+                  <p className="statsTitle">Top 5 Genres</p>
+                  {city?.CITY_TOP_5_GENRES.map((genre, i) => {
+                    return (
+                      <p key={genre} className="genreItem">
+                        {genre}
+                        <span className="float-right font-bold text-gray-600">{i}</span>
+                      </p>
+                    );
+                  })}
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </DialogPanel>
-    </Dialog>
+          </DialogPanel>
+        </Dialog>
+      )}
+    </AnimatePresence>
   );
 };
 
