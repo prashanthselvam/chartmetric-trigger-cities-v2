@@ -26,13 +26,17 @@ type TTriggerCitiesMapProps = {
   cities: TCity[];
 };
 
+function isMobile() {
+  return /Mobi|Android/i.test(navigator.userAgent);
+}
+
 const TriggerCitiesMap: React.FC<TTriggerCitiesMapProps> = ({ cities }) => {
   const [popupCity, setPopupCity] = React.useState<TCity | null>(null);
   const [tooltipCity, setTooltipCity] = React.useState<TCity | null>(null);
   const [hoverTier, setHoverTier] = React.useState<string | null>(null);
   const [isPopupOpen, setIsPopupOpen] = React.useState(false);
   const mapRef = React.useRef(null);
-  const isMobile = useMobileDetector();
+  const onMobileDevice = isMobile();
 
   const minPopulation =
     cities.sort((city1, city2) => city1.CITY_POPULATION - city2.CITY_POPULATION)?.[0]?.CITY_POPULATION ?? 0;
@@ -67,13 +71,13 @@ const TriggerCitiesMap: React.FC<TTriggerCitiesMapProps> = ({ cities }) => {
               minPopulation={minPopulation}
               maxPopulation={maxPopulation}
               handleMouseEnter={() => {
-                if (!isMobile) {
+                if (!onMobileDevice) {
                   setHoverTier(city.TRIGGER_CITY_TIER);
                   setTooltipCity(city);
                 }
               }}
               handleMouseLeave={() => {
-                if (!isMobile) {
+                if (!onMobileDevice) {
                   setHoverTier(null);
                   setTooltipCity(null);
                 }
