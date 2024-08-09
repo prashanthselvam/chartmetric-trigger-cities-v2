@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Dialog, DialogBackdrop, DialogPanel } from '@headlessui/react';
-import Map, { Marker, NavigationControl } from 'react-map-gl/maplibre';
+import Map, { Marker, NavigationControl, Popup } from 'react-map-gl/maplibre';
 import './styles.css';
 import { AnimatePresence, motion } from 'framer-motion';
 import { FigCaption, H3, H4, P } from '../Base';
@@ -27,6 +27,7 @@ type TTriggerCitiesMapProps = {
 
 const TriggerCitiesMap: React.FC<TTriggerCitiesMapProps> = ({ cities }) => {
   const [popupCity, setPopupCity] = React.useState<TCity | null>(null);
+  const [tooltipCity, setTooltipCity] = React.useState<TCity | null>(null);
   const [hoverTier, setHoverTier] = React.useState<string | null>(null);
   const [isPopupOpen, setIsPopupOpen] = React.useState(false);
   const mapRef = React.useRef(null);
@@ -56,16 +57,34 @@ const TriggerCitiesMap: React.FC<TTriggerCitiesMapProps> = ({ cities }) => {
               city={city}
               onClick={(city: TCity) => {
                 setHoverTier(null);
+                setTooltipCity(null);
                 setPopupCity(city);
                 setIsPopupOpen(true);
               }}
               hoverTier={hoverTier}
-              setHoverTier={setHoverTier}
-              markerIdx={idx}
               minPopulation={minPopulation}
               maxPopulation={maxPopulation}
+              handleMouseEnter={() => {
+                setHoverTier(city.TRIGGER_CITY_TIER);
+                setTooltipCity(city);
+              }}
+              handleMouseLeave={() => {
+                setHoverTier(null);
+                setTooltipCity(null);
+              }}
             />
           ))}
+          {!!tooltipCity && (
+            <Popup
+              longitude={tooltipCity.CITY_LNG}
+              latitude={tooltipCity.CITY_LAT}
+              className="cityTooltip"
+              closeButton={false}
+              offset={-38}
+            >
+              {tooltipCity.CITY_NAME}
+            </Popup>
+          )}
           <NavigationControl position="top-right" showZoom={true} />
         </Map>
         <div id="legend">
@@ -108,20 +127,20 @@ type TriggerCityMarkerProps = {
   city: TCity;
   onClick: (city: TCity) => void;
   hoverTier: string | null;
-  setHoverTier: (v: string | null) => void;
-  markerIdx: number;
   minPopulation: number;
   maxPopulation: number;
+  handleMouseEnter: () => void;
+  handleMouseLeave: () => void;
 };
 
 const TriggerCityMarker: React.FC<TriggerCityMarkerProps> = ({
   city,
   onClick,
-  setHoverTier,
   hoverTier,
-  markerIdx,
   minPopulation,
   maxPopulation,
+  handleMouseEnter,
+  handleMouseLeave,
 }) => {
   const tierToClassName = {
     'Tier 1': 'tier1Marker',
@@ -145,8 +164,8 @@ const TriggerCityMarker: React.FC<TriggerCityMarkerProps> = ({
       >
         <div className="mapMarkerOutline">
           <div
-            onMouseEnter={() => setHoverTier(city.TRIGGER_CITY_TIER)}
-            onMouseLeave={() => setHoverTier(null)}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
             className={`mapMarker ${className}`}
             style={{
               height: size,
