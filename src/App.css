@@ -123,10 +123,15 @@
     background: none;
 }
 
-.mapMarker {
+.mapMarkerOutline {
   border-radius: 200px;
   outline: 0.75px solid var(--color-gray-01);
   outline-offset: -5px;
+}
+
+.mapMarker {
+  border-radius: 200px;
+  filter: blur(6px);
 }
 
 .mapMarker:hover {

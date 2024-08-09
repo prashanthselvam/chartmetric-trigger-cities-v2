@@ -153,12 +153,18 @@ const TriggerCityMarker: React.FC<TriggerCityMarkerProps> = ({
         animate={{ y: 0 }}
         transition={{ duration: 0.3, delay: tierNumber * 0.5 }}
       >
-        <div
-          onMouseEnter={() => setHoverTier(city.TRIGGER_CITY_TIER)}
-          onMouseLeave={() => setHoverTier(null)}
-          className={`mapMarker ${className}`}
-          style={{ height: size, width: size, opacity: !!hoverTier && city.TRIGGER_CITY_TIER !== hoverTier ? 0.4 : 1 }}
-        />
+        <div className="mapMarkerOutline">
+          <div
+            onMouseEnter={() => setHoverTier(city.TRIGGER_CITY_TIER)}
+            onMouseLeave={() => setHoverTier(null)}
+            className={`mapMarker ${className}`}
+            style={{
+              height: size,
+              width: size,
+              opacity: !!hoverTier && city.TRIGGER_CITY_TIER !== hoverTier ? 0.4 : 1,
+            }}
+          />
+        </div>
       </motion.div>
     </Marker>
   );
