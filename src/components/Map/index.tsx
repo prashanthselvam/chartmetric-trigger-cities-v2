@@ -221,44 +221,49 @@ const PopupContent: React.FC<TPopupContentProps> = ({ city, handleClose, isPopup
             exit={{ opacity: 0, scale: 0.8 }}
             className="popupMain"
           >
+            <button onClick={handleClose} className="closeBtn">
+              X
+            </button>
             <div>
-              <div
-                className="cityImage"
-                style={{
-                  backgroundImage: `url(${city.CITY_IMAGE})`,
-                }}
-              >
-                <div className="cityImageOverlay" />
-                <H4>{city.CONTINENT}</H4>
-              </div>
-              <div className="cityInfo">
-                <div className="cityInfoTitle">
-                  <H3>{city.CITY_NAME}</H3>
-                  <P>{city.COUNTRY_NAME}</P>
+              <div className="popupInfoPane">
+                <div
+                  className="cityImage"
+                  style={{
+                    backgroundImage: `url(${city.CITY_IMAGE})`,
+                  }}
+                >
+                  <div className="cityImageOverlay" />
+                  <H4>{city.CONTINENT}</H4>
                 </div>
-                <P className="cityInfoDesc">{city.CITY_DESC}</P>
-              </div>
-            </div>
-            <div className="popupStatsPane">
-              <div className="tierPillContainer">
-                <div className={`tierPill ${pillClassName}`}>{city.TRIGGER_CITY_TIER}</div>
-                <P>{city.TRIGGER_CITY_TIER}</P>
-              </div>
-              <div className="statsContainer">
-                <div>
-                  <P className="statsTitle">Population</P>
-                  <P className="statsPopulation">{city.CITY_POPULATION.toLocaleString()}</P>
+                <div className="cityInfo">
+                  <div className="cityInfoTitle">
+                    <H3>{city.CITY_NAME}</H3>
+                    <P>{city.COUNTRY_NAME}</P>
+                  </div>
+                  <P className="cityInfoDesc">{city.CITY_DESC}</P>
                 </div>
-                <div className="mt-6">
-                  <P className="statsTitle">Top 5 Genres</P>
-                  {city.CITY_TOP_5_GENRES.map((genre, i) => {
-                    return (
-                      <P key={genre} className="genreItem">
-                        {genre}
-                        <span className="float-right font-bold text-gray-600">{i}</span>
-                      </P>
-                    );
-                  })}
+              </div>
+              <div className="popupStatsPane">
+                <div className="tierPillContainer">
+                  <div className={`tierPill ${pillClassName}`}>{city.TRIGGER_CITY_TIER}</div>
+                  <P>{city.TRIGGER_CITY_TIER}</P>
+                </div>
+                <div className="statsContainer">
+                  <div>
+                    <P className="statsTitle">Population</P>
+                    <P className="statsPopulation">{city.CITY_POPULATION.toLocaleString()}</P>
+                  </div>
+                  <div className="mt-6">
+                    <P className="statsTitle">Top 5 Genres</P>
+                    {city.CITY_TOP_5_GENRES.map((genre, i) => {
+                      return (
+                        <P key={genre} className="genreItem">
+                          {genre}
+                          <span className="float-right font-bold text-gray-600">{i}</span>
+                        </P>
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
             </div>

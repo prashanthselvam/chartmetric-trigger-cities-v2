@@ -187,12 +187,17 @@
 }
 
 .popupMain {
-  display: flex;
+  position: relative;
   background: linear-gradient(127.23deg, #1D1D21 28.41%, #26262B 111.37%);
   color: var(--color-gray-01);
   border-radius: 6px;
   z-index: 100;
   box-shadow: 5.6px 11.2px 11.2px hsl(0deg 0% 0% / 0.33);
+}
+
+.popupMain > div {
+  display: flex;
+  flex-direction: row;
 }
 
 .cityImage {
@@ -225,6 +230,23 @@
   top: 21px;
   left: 25px;
   border-radius: 8px;
+}
+
+/* Close Button */
+.closeBtn {
+  z-index: 100;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  top: 24px;
+  right: 25px;
+  border-radius: 200px;
+  background-color: var(--color-gray-06);
+  border: 1px solid var(--color-gray-05);
+  width: 32px;
+  height: 32px;
+  font-weight: 600;
+  display: none;
 }
 
 .cityInfo {
@@ -355,4 +377,34 @@
 .dialog-panel[data-closed] {
   transform: scale(0.95);
   opacity: 1;
+}
+
+
+@media (max-width: 768px) {
+  .popupMain {
+    height: 100vh;
+    width: 100%;
+    overflow-y: scroll;
+  }
+
+  .popupMain > div {
+    flex-direction: column;
+  }
+
+  .popupStatsPane {
+    width: 100%;
+    border-left: unset;
+  }
+
+  .cityInfo {
+    max-width: none;
+  }
+
+  .popupContainer {
+    align-items: flex-start;
+  }
+
+  .closeBtn {
+    display: flex;
+  }
 }
