@@ -408,3 +408,22 @@
     display: flex;
   }
 }
+
+@media (max-width: 420px) {
+  .topBar h1 {
+    margin-left: 12px;
+    font-size: 16px;
+  }
+  
+  .toggleBtnContainer {
+    margin-left: auto;
+    font-weight: 700;
+  }
+  
+  .toggleBtnContainer button {
+    font-size: 12px;
+    width: 65px;
+    padding: 6px 8px;
+    background-color: var(--color-gray-05);
+  }
+}

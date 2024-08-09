@@ -4,6 +4,7 @@ import Map, { Marker, NavigationControl, Popup } from 'react-map-gl/maplibre';
 import './styles.css';
 import { AnimatePresence, motion } from 'framer-motion';
 import { FigCaption, H3, H4, P } from '../Base';
+import { useMobileDetector } from '../../utils';
 
 export type TCity = {
   CITY_ID: number;
@@ -31,6 +32,7 @@ const TriggerCitiesMap: React.FC<TTriggerCitiesMapProps> = ({ cities }) => {
   const [hoverTier, setHoverTier] = React.useState<string | null>(null);
   const [isPopupOpen, setIsPopupOpen] = React.useState(false);
   const mapRef = React.useRef(null);
+  const isMobile = useMobileDetector();
 
   const minPopulation =
     cities.sort((city1, city2) => city1.CITY_POPULATION - city2.CITY_POPULATION)?.[0]?.CITY_POPULATION ?? 0;
@@ -65,12 +67,16 @@ const TriggerCitiesMap: React.FC<TTriggerCitiesMapProps> = ({ cities }) => {
               minPopulation={minPopulation}
               maxPopulation={maxPopulation}
               handleMouseEnter={() => {
-                setHoverTier(city.TRIGGER_CITY_TIER);
-                setTooltipCity(city);
+                if (!isMobile) {
+                  setHoverTier(city.TRIGGER_CITY_TIER);
+                  setTooltipCity(city);
+                }
               }}
               handleMouseLeave={() => {
-                setHoverTier(null);
-                setTooltipCity(null);
+                if (!isMobile) {
+                  setHoverTier(null);
+                  setTooltipCity(null);
+                }
               }}
             />
           ))}
