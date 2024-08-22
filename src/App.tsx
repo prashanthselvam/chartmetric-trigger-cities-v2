@@ -34,7 +34,7 @@ const FlourishEmbed = () => {
   React.useEffect(() => {
     const el = document.getElementById('flourish-real');
 
-    if (el?.children.length == 0) {
+    if (el?.children?.length == 0) {
       // @ts-ignore
       window.Flourish.loadEmbed(el);
     }
