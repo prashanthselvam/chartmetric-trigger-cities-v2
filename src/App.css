@@ -370,7 +370,9 @@
 }
 
 .genreItem span {
-  float: right;
+  float: left;
+  display: inline-block;
+  margin-right: 12px;
 }
 
 .dialog-panel[data-closed] {

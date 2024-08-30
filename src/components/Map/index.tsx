@@ -67,7 +67,12 @@ const TriggerCitiesMap: React.FC<TTriggerCitiesMapProps> = ({ cities }) => {
           }}
           style={{ opacity: 0.95 }}
           mapStyle="https://prashanthselvam.github.io/chartmetric-trigger-cities-v2/map_style.json"
+          // mapStyle={'/map_style.json'}
           scrollZoom={false}
+          maxBounds={[
+            [-179.9999999, -65],
+            [179.9999999, 70],
+          ]}
         >
           {cities.map((city, idx) => (
             <TriggerCityMarker
@@ -210,6 +215,15 @@ const getMarkerSize = (cityPopulation: number, min: number, max: number) => {
   return Math.floor(size);
 };
 
+function formatNumber(num: number) {
+  if (num >= 1_000_000) {
+    return (num / 1_000_000).toFixed(1).replace(/\.0$/, '') + 'M';
+  } else if (num >= 1_000) {
+    return (num / 1_000).toFixed(1).replace(/\.0$/, '') + 'K';
+  }
+  return num.toString();
+}
+
 type TPopupContentProps = {
   city: TCity | null;
   handleClose: () => void;
@@ -273,15 +287,15 @@ const PopupContent: React.FC<TPopupContentProps> = ({ city, handleClose, isPopup
                 <div className="statsContainer">
                   <div>
                     <P className="statsTitle">Population</P>
-                    <P className="statsPopulation">{city.CITY_POPULATION.toLocaleString()}</P>
+                    <P className="statsPopulation">{formatNumber(city.CITY_POPULATION)}</P>
                   </div>
                   <div className="mt-6">
                     <P className="statsTitle">Top 5 Genres</P>
                     {city.CITY_TOP_5_GENRES.map((genre, i) => {
                       return (
                         <P key={genre} className="genreItem">
+                          <span className="float-left font-bold text-gray-600">{i + 1}</span>
                           {genre}
-                          <span className="float-right font-bold text-gray-600">{i + 1}</span>
                         </P>
                       );
                     })}
