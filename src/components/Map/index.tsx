@@ -4,7 +4,6 @@ import Map, { Marker, NavigationControl, Popup } from 'react-map-gl/maplibre';
 import './styles.css';
 import { AnimatePresence, motion } from 'framer-motion';
 import { FigCaption, H3, H4, P } from '../Base';
-import LazyLoad from 'react-lazyload';
 
 export type TCity = {
   CITY_ID: number;
@@ -272,17 +271,15 @@ const PopupContent: React.FC<TPopupContentProps> = ({ city, handleClose, isPopup
             </button>
             <div>
               <div className="popupInfoPane">
-                <LazyLoad height={149}>
-                  <div
-                    className="cityImage"
-                    style={{
-                      backgroundImage: `url(${city.CITY_IMAGE})`,
-                    }}
-                  >
-                    <div className="cityImageOverlay" />
-                    <H4>{city.CONTINENT}</H4>
-                  </div>
-                </LazyLoad>
+                <div
+                  className="cityImage"
+                  style={{
+                    backgroundImage: `url(${city.CITY_IMAGE})`,
+                  }}
+                >
+                  <div className="cityImageOverlay" />
+                  <H4>{city.CONTINENT}</H4>
+                </div>
                 <div className="cityInfo">
                   <div className="cityInfoTitle">
                     <H3>{city.CITY_NAME}</H3>
