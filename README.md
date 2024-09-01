@@ -4,8 +4,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Project Deployment
 
-This application is deployed using GitHub pages. Specifically, the code is deployed on the `gh-pages` branch. Follow the
-steps below to update the deloyment.
+The code here powers the Map component on the Chartmetric Trigger Cities website. We expose the production js and css
+files using Github pages. In case you need to make changes to the site, you can follow the steps below.
 
 1. Commit and push the latest changes to the main branch.
 2. Run `npm run deploy`. This script is responsible for generating updated .js and .css files. There will be 4 files
@@ -13,7 +13,7 @@ steps below to update the deloyment.
 
 ![alt text](image.png)
 
-3. On the Webflow site, update the `script` tags to reference the updated file names.
+3. On the Webflow site, update the `script` tags to reference the updated file names and publish the site.
 
 ## Available Scripts
 
