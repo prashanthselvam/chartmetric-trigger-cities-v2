@@ -4,7 +4,6 @@ import Map, { Marker, NavigationControl, Popup } from 'react-map-gl/maplibre';
 import './styles.css';
 import { AnimatePresence, motion } from 'framer-motion';
 import { FigCaption, H3, H4, P } from '../Base';
-import { useMobileDetector } from '../../utils';
 import LazyLoad from 'react-lazyload';
 
 export type TCity = {
