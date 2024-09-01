@@ -5,6 +5,7 @@ import './styles.css';
 import { AnimatePresence, motion } from 'framer-motion';
 import { FigCaption, H3, H4, P } from '../Base';
 import { useMobileDetector } from '../../utils';
+import LazyLoad from 'react-lazyload';
 
 export type TCity = {
   CITY_ID: number;
@@ -29,6 +30,15 @@ type TTriggerCitiesMapProps = {
 function isMobile() {
   return /Mobi|Android/i.test(navigator.userAgent);
 }
+
+const cacheImage = async (imgUrl: string) => {
+  const promise = new Promise(function (resolve, reject) {
+    const img = new Image();
+    img.src = imgUrl;
+  });
+
+  await Promise.all([promise]);
+};
 
 const TriggerCitiesMap: React.FC<TTriggerCitiesMapProps> = ({ cities }) => {
   const [popupCity, setPopupCity] = React.useState<TCity | null>(null);
@@ -91,6 +101,7 @@ const TriggerCitiesMap: React.FC<TTriggerCitiesMapProps> = ({ cities }) => {
                 if (!onMobileDevice) {
                   setHoverTier(city.TRIGGER_CITY_TIER);
                   setTooltipCity(city);
+                  cacheImage(city.CITY_IMAGE);
                 }
               }}
               handleMouseLeave={() => {
@@ -262,15 +273,17 @@ const PopupContent: React.FC<TPopupContentProps> = ({ city, handleClose, isPopup
             </button>
             <div>
               <div className="popupInfoPane">
-                <div
-                  className="cityImage"
-                  style={{
-                    backgroundImage: `url(${city.CITY_IMAGE})`,
-                  }}
-                >
-                  <div className="cityImageOverlay" />
-                  <H4>{city.CONTINENT}</H4>
-                </div>
+                <LazyLoad height={149}>
+                  <div
+                    className="cityImage"
+                    style={{
+                      backgroundImage: `url(${city.CITY_IMAGE})`,
+                    }}
+                  >
+                    <div className="cityImageOverlay" />
+                    <H4>{city.CONTINENT}</H4>
+                  </div>
+                </LazyLoad>
                 <div className="cityInfo">
                   <div className="cityInfoTitle">
                     <H3>{city.CITY_NAME}</H3>
