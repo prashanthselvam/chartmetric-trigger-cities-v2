@@ -180,7 +180,7 @@
 
 .popupBackdrop {
   position: fixed;
-  background: var(--color-gray-06);
+  background: var(--color-gray-07);
   opacity: .4;
   inset: 0;
 }
