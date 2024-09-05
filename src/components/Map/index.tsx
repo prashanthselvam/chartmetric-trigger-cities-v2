@@ -198,7 +198,12 @@ const TriggerCityMarker: React.FC<TriggerCityMarkerProps> = ({
         animate={{ y: 0 }}
         transition={{ duration: 0.3, delay: tierNumber * 0.5 }}
       >
-        <div className="mapMarkerOutline">
+        <div
+          className="mapMarkerOutline"
+          style={
+            !!hoverTier && city.TRIGGER_CITY_TIER !== hoverTier ? { outlineColor: 'rgba(244, 244, 244, 0.4)' } : {}
+          }
+        >
           <div
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
