@@ -128,31 +128,19 @@ const TriggerCitiesMap: React.FC<TTriggerCitiesMapProps> = ({ cities }) => {
         </Map>
         <div id="legend">
           <figure onMouseEnter={() => setHoverTier('Tier 1')} onMouseLeave={() => setHoverTier(null)}>
-            <div
-              className="legendMarker"
-              style={{ backgroundColor: 'var(--color-tier-1)', width: '16.1px', height: '16.1px' }}
-            />
+            <div className="legendMarker" style={{ backgroundColor: 'var(--color-tier-1)' }} />
             <FigCaption>Tier 1</FigCaption>
           </figure>
           <figure onMouseEnter={() => setHoverTier('Tier 2')} onMouseLeave={() => setHoverTier(null)}>
-            <div
-              className="legendMarker"
-              style={{ backgroundColor: 'var(--color-tier-2)', width: '12px', height: '12px' }}
-            />
+            <div className="legendMarker" style={{ backgroundColor: 'var(--color-tier-2)' }} />
             <FigCaption>Tier 2</FigCaption>
           </figure>
           <figure onMouseEnter={() => setHoverTier('Tier 3')} onMouseLeave={() => setHoverTier(null)}>
-            <div
-              className="legendMarker"
-              style={{ backgroundColor: 'var(--color-tier-3)', width: '9px', height: '9px' }}
-            />
+            <div className="legendMarker" style={{ backgroundColor: 'var(--color-tier-3)' }} />
             <FigCaption>Tier 3</FigCaption>
           </figure>
           <figure onMouseEnter={() => setHoverTier('Tier 4')} onMouseLeave={() => setHoverTier(null)}>
-            <div
-              className="legendMarker"
-              style={{ backgroundColor: 'var(--color-tier-4)', width: '7px', height: '7px' }}
-            />
+            <div className="legendMarker" style={{ backgroundColor: 'var(--color-tier-4)' }} />
             <FigCaption>Tier 4</FigCaption>
           </figure>
         </div>
