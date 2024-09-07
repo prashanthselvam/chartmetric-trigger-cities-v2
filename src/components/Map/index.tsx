@@ -77,8 +77,8 @@ const TriggerCitiesMap: React.FC<TTriggerCitiesMapProps> = ({ cities }) => {
             zoom: 1.5,
           }}
           style={{ opacity: 0.95 }}
-          // mapStyle="https://prashanthselvam.github.io/chartmetric-trigger-cities-v2/map_style.json"
-          mapStyle={'/map_style.json'}
+          mapStyle="https://prashanthselvam.github.io/chartmetric-trigger-cities-v2/map_style.json"
+          // mapStyle={'/map_style.json'}
           scrollZoom={false}
           maxBounds={[
             [-179.9999999, -65],
