@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "https://prashanthselvam.github.io/chartmetric-trigger-cities-v2/static/css/main.fcb3dc02.css",
-    "main.js": "https://prashanthselvam.github.io/chartmetric-trigger-cities-v2/static/js/main.c410bf25.js",
+    "main.css": "https://prashanthselvam.github.io/chartmetric-trigger-cities-v2/static/css/main.9ae4b069.css",
+    "main.js": "https://prashanthselvam.github.io/chartmetric-trigger-cities-v2/static/js/main.6688d033.js",
     "static/js/66.946dfb2d.chunk.js": "https://prashanthselvam.github.io/chartmetric-trigger-cities-v2/static/js/66.946dfb2d.chunk.js",
     "static/js/453.b2300b30.chunk.js": "https://prashanthselvam.github.io/chartmetric-trigger-cities-v2/static/js/453.b2300b30.chunk.js",
     "index.html": "https://prashanthselvam.github.io/chartmetric-trigger-cities-v2/index.html",
-    "main.fcb3dc02.css.map": "https://prashanthselvam.github.io/chartmetric-trigger-cities-v2/static/css/main.fcb3dc02.css.map",
-    "main.c410bf25.js.map": "https://prashanthselvam.github.io/chartmetric-trigger-cities-v2/static/js/main.c410bf25.js.map",
+    "main.9ae4b069.css.map": "https://prashanthselvam.github.io/chartmetric-trigger-cities-v2/static/css/main.9ae4b069.css.map",
+    "main.6688d033.js.map": "https://prashanthselvam.github.io/chartmetric-trigger-cities-v2/static/js/main.6688d033.js.map",
     "66.946dfb2d.chunk.js.map": "https://prashanthselvam.github.io/chartmetric-trigger-cities-v2/static/js/66.946dfb2d.chunk.js.map",
     "453.b2300b30.chunk.js.map": "https://prashanthselvam.github.io/chartmetric-trigger-cities-v2/static/js/453.b2300b30.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.fcb3dc02.css",
-    "static/js/main.c410bf25.js"
+    "static/css/main.9ae4b069.css",
+    "static/js/main.6688d033.js"
   ]
 }
