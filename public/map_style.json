@@ -44,7 +44,7 @@
           ["!=", "brunnel", "tunnel"]
         ],
         "layout": {"visibility": "visible"},
-        "paint": {"fill-antialias": false, "fill-color": "rgb(37, 37, 41)"}
+        "paint": {"fill-antialias": false, "fill-color": "rgb(44, 44, 48)"}
       },
       {
         "id": "boundary_country_z0-4",
