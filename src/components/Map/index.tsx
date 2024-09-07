@@ -4,6 +4,7 @@ import Map, { Marker, NavigationControl, Popup } from 'react-map-gl/maplibre';
 import './styles.css';
 import { AnimatePresence, motion } from 'framer-motion';
 import { FigCaption, H3, H4, P } from '../Base';
+import parse from 'html-react-parser';
 
 export type TCity = {
   CITY_ID: number;
@@ -292,7 +293,7 @@ const PopupContent: React.FC<TPopupContentProps> = ({ city, handleClose, isPopup
                     <H3>{city.CITY_NAME}</H3>
                     <P>{city.COUNTRY_NAME}</P>
                   </div>
-                  <P className="cityInfoDesc">{city.CITY_DESCRIPTION}</P>
+                  <P className="cityInfoDesc">{parse(city.CITY_DESCRIPTION)}</P>
                 </div>
               </div>
               <div className="popupStatsPane">
