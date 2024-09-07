@@ -17,7 +17,7 @@ export type TCity = {
   CONTINENT: string;
   CITY_TOP_GENRE: string;
   CITY_TOP_5_GENRES: string[];
-  CITY_DESC: string;
+  CITY_DESCRIPTION: string;
   CITY_IMAGE: string;
 };
 
@@ -62,6 +62,8 @@ const TriggerCitiesMap: React.FC<TTriggerCitiesMapProps> = ({ cities }) => {
       }, 50);
     }
   }, [cities?.length]);
+
+  console.log({ minPopulation, maxPopulation, cities });
 
   return (
     <>
@@ -290,7 +292,7 @@ const PopupContent: React.FC<TPopupContentProps> = ({ city, handleClose, isPopup
                     <H3>{city.CITY_NAME}</H3>
                     <P>{city.COUNTRY_NAME}</P>
                   </div>
-                  <P className="cityInfoDesc">{city.CITY_DESC}</P>
+                  <P className="cityInfoDesc">{city.CITY_DESCRIPTION}</P>
                 </div>
               </div>
               <div className="popupStatsPane">

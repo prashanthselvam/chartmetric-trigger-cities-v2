@@ -43,14 +43,24 @@ const FlourishEmbed = () => {
   return <div id="flourish-real" className="flourish-embed flourish-table" data-src="visualisation/18671732"></div>;
 };
 
+export type TCityFromApi = Omit<TCity, 'CITY_POPULATION'> & {
+  CITY_POPULATION: string;
+};
+
 function App() {
   const [active, setActive] = React.useState<'MAP' | 'TABLE'>('MAP');
   const [cities, setCities] = React.useState<TCity[]>([]);
 
   React.useEffect(() => {
-    fetch('https://prashanthselvam.github.io/chartmetric-trigger-cities-v2/cities.json')
+    fetch('https://chartmetric-public.s3.us-west-2.amazonaws.com/trigger_cities/2024/trigger_cities.json')
       .then((response) => response.json())
-      .then((data) => setCities(data))
+      .then((data) => {
+        setCities(
+          data.map((city: TCityFromApi) => {
+            return { ...city, CITY_POPULATION: parseInt(city.CITY_POPULATION.replace(/,/g, ''), 10) };
+          })
+        );
+      })
       .catch((error) => console.error('Error fetching cities:', error));
   }, []);
 
