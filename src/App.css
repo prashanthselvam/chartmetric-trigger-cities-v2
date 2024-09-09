@@ -94,10 +94,16 @@
   border: 0.5px dashed var(--color-gray-05);
   border-radius: 3px;
   color: var(--color-gray-01);
-  display: flex;
-  gap: 12px;
   font-weight: 400;
   font-size: 12px;
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+}
+
+#legend .markersContainer {
+  display: flex;
+  gap: 12px;
 }
 
 #legend .legendMarker {
@@ -426,6 +432,10 @@
 
   .closeBtn {
     display: flex;
+  }
+
+  #legend {
+    flex-direction: column;
   }
 }
 

@@ -125,22 +125,24 @@ const TriggerCitiesMap: React.FC<TTriggerCitiesMapProps> = ({ cities }) => {
           <NavigationControl position="top-right" showZoom={true} />
         </Map>
         <div id="legend">
-          <figure onMouseEnter={() => setHoverTier('Tier 1')} onMouseLeave={() => setHoverTier(null)}>
-            <div className="legendMarker" style={{ backgroundColor: 'var(--color-tier-1)' }} />
-            <FigCaption>Tier 1</FigCaption>
-          </figure>
-          <figure onMouseEnter={() => setHoverTier('Tier 2')} onMouseLeave={() => setHoverTier(null)}>
-            <div className="legendMarker" style={{ backgroundColor: 'var(--color-tier-2)' }} />
-            <FigCaption>Tier 2</FigCaption>
-          </figure>
-          <figure onMouseEnter={() => setHoverTier('Tier 3')} onMouseLeave={() => setHoverTier(null)}>
-            <div className="legendMarker" style={{ backgroundColor: 'var(--color-tier-3)' }} />
-            <FigCaption>Tier 3</FigCaption>
-          </figure>
-          <figure onMouseEnter={() => setHoverTier('Tier 4')} onMouseLeave={() => setHoverTier(null)}>
-            <div className="legendMarker" style={{ backgroundColor: 'var(--color-tier-4)' }} />
-            <FigCaption>Tier 4</FigCaption>
-          </figure>
+          <div className="markersContainer">
+            <figure onMouseEnter={() => setHoverTier('Tier 1')} onMouseLeave={() => setHoverTier(null)}>
+              <div className="legendMarker" style={{ backgroundColor: 'var(--color-tier-1)' }} />
+              <FigCaption>Tier 1</FigCaption>
+            </figure>
+            <figure onMouseEnter={() => setHoverTier('Tier 2')} onMouseLeave={() => setHoverTier(null)}>
+              <div className="legendMarker" style={{ backgroundColor: 'var(--color-tier-2)' }} />
+              <FigCaption>Tier 2</FigCaption>
+            </figure>
+            <figure onMouseEnter={() => setHoverTier('Tier 3')} onMouseLeave={() => setHoverTier(null)}>
+              <div className="legendMarker" style={{ backgroundColor: 'var(--color-tier-3)' }} />
+              <FigCaption>Tier 3</FigCaption>
+            </figure>
+            <figure onMouseEnter={() => setHoverTier('Tier 4')} onMouseLeave={() => setHoverTier(null)}>
+              <div className="legendMarker" style={{ backgroundColor: 'var(--color-tier-4)' }} />
+              <FigCaption>Tier 4</FigCaption>
+            </figure>
+          </div>
           <figure>
             <LegendSvg />
             <FigCaption>Population Size</FigCaption>
@@ -325,20 +327,20 @@ const LegendSvg = () => {
       <path
         d="M11 11.0006C11 13.7608 8.761 15.9992 6 15.9992C3.239 15.9992 1 13.7608 1 11.0006C1 8.24034 3.239 6.00195 6 6.00195C8.761 6.00195 11 8.24034 11 11.0006Z"
         stroke="#F4F4F4"
-        stroke-width="0.6"
-        stroke-miterlimit="10"
+        strokeWidth="0.6"
+        strokeMiterlimit="10"
       />
       <path
         d="M28 11C28 15.1416 24.6415 18.5 20.5 18.5C16.3585 18.5 13 15.1416 13 11C13 6.85852 16.3585 3.5 20.5 3.5C24.6415 3.5 28 6.85852 28 11Z"
         stroke="#F4F4F4"
-        stroke-width="0.6"
-        stroke-miterlimit="10"
+        strokeWidth="0.6"
+        strokeMiterlimit="10"
       />
       <path
         d="M50.0057 11C50.0057 16.5241 45.5268 21 40.004 21C34.4811 21 30 16.5241 30 11C30 5.47587 34.4789 1 40.0017 1C45.5245 1 50.0034 5.47811 50.0034 11"
         stroke="#F4F4F4"
-        stroke-width="0.6"
-        stroke-miterlimit="10"
+        strokeWidth="0.6"
+        strokeMiterlimit="10"
       />
       <path
         d="M31.7879 10.7879C31.6707 10.905 31.6707 11.095 31.7879 11.2121L33.6971 13.1213C33.8142 13.2385 34.0042 13.2385 34.1213 13.1213C34.2385 13.0042 34.2385 12.8142 34.1213 12.6971L32.4243 11L34.1213 9.30294C34.2385 9.18579 34.2385 8.99584 34.1213 8.87868C34.0042 8.76152 33.8142 8.76152 33.6971 8.87868L31.7879 10.7879ZM48.2121 11.2121C48.3293 11.095 48.3293 10.905 48.2121 10.7879L46.3029 8.87868C46.1858 8.76152 45.9958 8.76152 45.8787 8.87868C45.7615 8.99584 45.7615 9.18579 45.8787 9.30294L47.5757 11L45.8787 12.6971C45.7615 12.8142 45.7615 13.0042 45.8787 13.1213C45.9958 13.2385 46.1858 13.2385 46.3029 13.1213L48.2121 11.2121ZM32.5333 11.3C32.699 11.3 32.8333 11.1657 32.8333 11C32.8333 10.8343 32.699 10.7 32.5333 10.7V11.3ZM34.1333 10.7C33.9676 10.7 33.8333 10.8343 33.8333 11C33.8333 11.1657 33.9676 11.3 34.1333 11.3V10.7ZM35.2 11.3C35.3657 11.3 35.5 11.1657 35.5 11C35.5 10.8343 35.3657 10.7 35.2 10.7V11.3ZM36.8 10.7C36.6343 10.7 36.5 10.8343 36.5 11C36.5 11.1657 36.6343 11.3 36.8 11.3V10.7ZM37.8667 11.3C38.0324 11.3 38.1667 11.1657 38.1667 11C38.1667 10.8343 38.0324 10.7 37.8667 10.7V11.3ZM39.4667 10.7C39.301 10.7 39.1667 10.8343 39.1667 11C39.1667 11.1657 39.301 11.3 39.4667 11.3V10.7ZM40.5333 11.3C40.699 11.3 40.8333 11.1657 40.8333 11C40.8333 10.8343 40.699 10.7 40.5333 10.7V11.3ZM42.1333 10.7C41.9676 10.7 41.8333 10.8343 41.8333 11C41.8333 11.1657 41.9676 11.3 42.1333 11.3V10.7ZM43.2 11.3C43.3657 11.3 43.5 11.1657 43.5 11C43.5 10.8343 43.3657 10.7 43.2 10.7V11.3ZM44.8 10.7C44.6343 10.7 44.5 10.8343 44.5 11C44.5 11.1657 44.6343 11.3 44.8 11.3V10.7ZM45.8667 11.3C46.0324 11.3 46.1667 11.1657 46.1667 11C46.1667 10.8343 46.0324 10.7 45.8667 10.7V11.3ZM47.4667 10.7C47.301 10.7 47.1667 10.8343 47.1667 11C47.1667 11.1657 47.301 11.3 47.4667 11.3V10.7ZM32 11.3H32.5333V10.7H32V11.3ZM34.1333 11.3H35.2V10.7H34.1333V11.3ZM36.8 11.3H37.8667V10.7H36.8V11.3ZM39.4667 11.3H40.5333V10.7H39.4667V11.3ZM42.1333 11.3H43.2V10.7H42.1333V11.3ZM44.8 11.3H45.8667V10.7H44.8V11.3ZM47.4667 11.3H48V10.7H47.4667V11.3Z"
