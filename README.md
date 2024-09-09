@@ -15,6 +15,9 @@ files using Github pages. In case you need to make changes to the site, you can 
 
 3. On the Webflow site, update the `script` tags to reference the updated file names and publish the site.
 
+The deployment script comes from the react-gh-pages package. To learn more about this package and how it works under the
+hood you can check out its documentation: https://github.com/gitname/react-gh-pages
+
 ## Available Scripts
 
 In the project directory, you can run:
