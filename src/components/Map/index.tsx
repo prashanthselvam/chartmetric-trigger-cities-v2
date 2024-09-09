@@ -53,16 +53,16 @@ const TriggerCitiesMap: React.FC<TTriggerCitiesMapProps> = ({ cities }) => {
   const maxPopulation =
     cities.sort((city1, city2) => city2.CITY_POPULATION - city1.CITY_POPULATION)?.[0]?.CITY_POPULATION ?? 100000;
 
-  React.useEffect(() => {
-    if (cities?.length > 0) {
-      setTimeout(() => {
-        if (mapContainerRef.current) {
-          mapContainerRef.current.style.backgroundImage =
-            'url("https://images.unsplash.com/photo-1579547945478-a6681fb3c3c9?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")';
-        }
-      }, 50);
-    }
-  }, [cities?.length]);
+  // React.useEffect(() => {
+  //   if (cities?.length > 0) {
+  //     setTimeout(() => {
+  //       if (mapContainerRef.current) {
+  //         mapContainerRef.current.style.backgroundImage =
+  //           'url("https://images.unsplash.com/photo-1579547945478-a6681fb3c3c9?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")';
+  //       }
+  //     }, 50);
+  //   }
+  // }, [cities?.length]);
 
   return (
     <>

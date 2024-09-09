@@ -290,7 +290,12 @@
 }
 
 .cityInfoDesc a {
-  color: yellow;
+  color: white;
+  font-weight: 700;
+}
+
+.cityInfoDesc a:hover {
+  opacity: .85;
 }
 
 .popupStatsPane {
